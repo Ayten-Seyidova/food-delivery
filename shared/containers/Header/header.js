@@ -1,7 +1,15 @@
-import { Navbar, Container, Nav } from "react-bootstrap";
+import { useTranslation } from "react-i18next";
 import Link from 'next/link';
+import {
+  Navbar,
+  Container,
+  Nav,
+} from "react-bootstrap";
+
 
 export const Header = () => {
+
+  const { t, i18n } = useTranslation();
 
   return (
     <header>
@@ -20,7 +28,6 @@ export const Header = () => {
               </Link>
             </li>
             <li className="nav-link">
-
               <Link href="/about">
                 <a>About us</a>
               </Link>
@@ -36,6 +43,7 @@ export const Header = () => {
               </Link>
             </li>
           </Nav>
+
         </Container>
       </Navbar>
     </header>
