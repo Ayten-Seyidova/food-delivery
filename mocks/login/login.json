@@ -1,0 +1,20 @@
+[
+    {
+        "fullName": "Team React1",
+        "userName": "TeamReact1",
+        "email": "team1@gmail.com",
+        "password": "12345678"
+    },
+    {
+        "fullName": "John Doe",
+        "userName": "john_doe",
+        "email": "john@gmail.com",
+        "password": "12345678"
+    },
+    {
+        "fullName": "Marie Doe",
+        "userName": "marie_doe",
+        "email": "marie@gmail.com",
+        "password": "12345678"
+    }
+]
