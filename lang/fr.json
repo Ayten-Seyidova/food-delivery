@@ -20,6 +20,7 @@
     "password": "Mot de passe",
     "username": "Nom d'utilisateur",
     "login": "Connexion",
+    "log in": "Connexion",
     "signup": "S'inscrire",
     "register": "S'inscrire",
     "home": "Maison",
@@ -30,5 +31,16 @@
      "basket":"Votre panier",
      "orders":"Vos commandes",
      "checkout":"Commander",
-     "logout":"Déconnexion"
+     "logout":"Déconnexion",
+     "nameError": "Le nom d'utilisateur est erroné",
+     "passwordError": "Le mot de passe est erroné",
+     "nameOrPassError": "Le nom d'utilisateur ou le mot de passe est erroné",
+     "nameRequired": "Nom d'utilisateur est nécessaire",
+     "fullNameRequired": "Le nom complet est requis",
+     "emailRequired": "L'e-mail est requis",
+     "passwordRequired": "Mot de passe requis",
+     "registered": "Vous vous êtes inscrit avec succès",
+     "unique username": "Déjà inscrit avec ce nom d'utilisateur",
+     "passwordLength": "Le mot de passe doit comporter plus de 8 caractères",
+     "back": "Retourner"
 }}

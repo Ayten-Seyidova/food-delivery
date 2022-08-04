@@ -20,6 +20,7 @@
         "password": "Şifrə",
         "username": "İstifadəçi adı",
         "login": "Daxil ol",
+        "log in": "Daxil ol",
         "signup": "Qeydiyyat",
         "register": "Qeydiyyatdan keç",
         "home": "Əsas",
@@ -31,6 +32,17 @@
         "basket": "Sənin Səbətin",
         "orders": "Sifarişləriniz",
         "checkout": "Ödəniş",
-        "logout": "Çıxış"
+        "logout": "Çıxış",
+        "nameError": "İstifadəçi adı səhvdir",
+        "passwordError": "Şifrə səhvdir",
+        "nameOrPassError": "İstifadəçi adı və ya şifrə yanlışdır",
+        "nameRequired": "İstifadəçi adı tələb olunur",
+        "passwordRequired": "Şifrə tələb olunur",
+        "fullNameRequired": "Tam ad tələb olunur",
+        "emailRequired": "E-poçt tələb olunur",
+        "registered": "Uğurla qeydiyyatdan keçdiniz",
+        "unique username": "Bu istifadəçi adı ilə artıq qeydiyyatdan keçilmişdir",
+        "passwordLength": "Şifrə ən azı 8 simvoldan ibarət olmalıdır",
+        "back": "Geri"
     }
 }

@@ -19,7 +19,8 @@
     "email": "Email",
     "password": "Password",
     "username": "Username",
-    "login": "Log in",
+    "login": "Login",
+    "log in": "Log in",
     "signup": "Sign up",
     "register": "Register",
     "home": "Home",
@@ -30,5 +31,16 @@
     "basket":"Your Basket",
     "orders":"Your Orders",
     "checkout":"Checkout",
-    "logout":"Logout"
+    "logout":"Logout",
+    "nameError": "Username is wrong",
+    "passwordError": "Password is wrong",
+    "nameOrPassError": "Username or password is wrong",
+    "nameRequired": "Username is required",
+    "passwordRequired": "Password is required",
+    "fullNameRequired": "Full name is required",
+    "emailRequired": "Email is required",
+    "registered": "You have successfully registered",
+    "unique username": "Already registered with this username",
+    "passwordLength": "Password must be longer than 8 character",
+    "back": "Go back"
 }}

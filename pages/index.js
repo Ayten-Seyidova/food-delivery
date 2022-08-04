@@ -21,11 +21,11 @@ export default function Home(props) {
   )
 }
 
-export const getServerSideProps = async () => {
-  const response = await axios("http://www.omdbapi.com/?apikey=a407a7b3&s=movie")
-  return {
-    props: {
-      movies: response.data.Search
-    }
-  }
-}
+// export const getServerSideProps = async () => {
+//   const response = await axios("http://www.omdbapi.com/?apikey=a407a7b3&s=movie")
+//   return {
+//     props: {
+//       movies: response.data.Search
+//     }
+//   }
+// }
