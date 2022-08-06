@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import { Container } from "react-bootstrap";
-import { Header } from "../../containers/Header/Header";
+import { Header } from "../../containers/Header/header";
 import { Footer } from "../../containers/Footer/footer";
 
 
