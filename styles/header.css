@@ -1,0 +1,80 @@
+.header-section {
+    background-color: #F3F4F6;
+    padding: 47px 0;
+    width: 100%;
+}
+
+.Home_container__bCOhY {
+    padding: 0 !important;
+}
+
+.menu-section {
+    margin-left: 67px;
+}
+
+.menu-section a {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    color: #828282;
+    text-decoration: none;
+    transition: .3s all ease-in-out;
+}
+
+.menu-section a:hover, .menu-section a:focus {
+    color: #D63626;
+    font-weight: 700;
+}
+
+.language-section .dropdown-toggle {
+    width: 41px;
+    height: 41px;
+    padding: 0;
+    border: transparent;
+}
+
+.language-section .dropdown-toggle:hover, .language-section .dropdown-toggle:focus, .language-section .dropdown-toggle:active {
+    border: transparent !important;
+}
+
+.language-section .dropdown-toggle::after {
+    border: none !important;
+}
+
+.language-section ul {
+    background-color: #fff;
+    border: none;
+    max-width: 61px !important;
+    min-width: 61px !important;
+    padding: 0 10px;
+    margin-left: -10px !important;
+    margin-top: 10px !important;
+}
+
+.language-section li div {
+    background-color: #fff;
+    border: none;
+    max-width: 61px !important;
+    padding: 5px 0;
+}
+
+.language-section {
+    display: flex;
+}
+
+.language-section li div:hover {
+    background-color: #fff;
+}
+
+.language-section .sign-button a {
+    margin-left: 27px;
+    display: inline-block;
+    text-decoration: none;
+    background-color: #D63626;
+    color: #fff;
+    border-radius: 30px;
+    padding: 7px 23px;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+}
