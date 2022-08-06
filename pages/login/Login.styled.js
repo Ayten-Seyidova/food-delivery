@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const LoginSection = styled.div`
-    padding: 30px 34px;
+    padding: 0;
 `
 
 export const HeaderDiv = styled.div`

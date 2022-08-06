@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500;700;900&display=swap");
+@import url("./header.css");
 
 html,
 body {
@@ -6,6 +7,10 @@ body {
     margin: 0;
     font-family: "Roboto", sans-serif;
     background-color: #fff;
+}
+
+body {
+    padding: 30px;
 }
 
 a {
