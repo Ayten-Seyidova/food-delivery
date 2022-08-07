@@ -1,7 +1,5 @@
 const ErrorContainerPage = () => {
-    return(
-        <>ErrorContainerPage</>
-    )
-}
+  return <>ErrorContainerPage</>;
+};
 
 export default ErrorContainerPage;

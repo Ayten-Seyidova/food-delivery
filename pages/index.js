@@ -1,14 +1,12 @@
-import Head from 'next/head';
-import styles from '../styles/Home.module.css';
+import Head from "next/head";
+import styles from "../styles/Home.module.css";
 import axios from "axios";
-import Layout from '../shared/components/Layout';
-import HomeContainerPage from '../features/Home/HomeContainer/HomeContainer';
+import Layout from "../shared/components/Layout";
+import HomeContainerPage from "../features/Home/HomeContainer/HomeContainer";
 
 export default function Home(props) {
-
   return (
     <div className={styles.container}>
-
       <Layout>
         <Head>
           <title>Home | Foody Delivery</title>
@@ -18,7 +16,7 @@ export default function Home(props) {
         <HomeContainerPage />
       </Layout>
     </div>
-  )
+  );
 }
 
 // export const getServerSideProps = async () => {

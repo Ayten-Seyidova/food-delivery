@@ -3,4 +3,4 @@ import MockAdapter from "axios-mock-adapter";
 
 export const AxiosMockCreate = new MockAdapter(axios);
 
-export const Axios = axios
+export const Axios = axios;

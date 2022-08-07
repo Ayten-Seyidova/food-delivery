@@ -1,7 +1,5 @@
 const UserContainerPage = () => {
-    return(
-        <>UserContainerPage</>
-    )
-}
+  return <>UserContainerPage</>;
+};
 
 export default UserContainerPage;

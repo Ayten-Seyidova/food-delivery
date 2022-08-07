@@ -1,7 +1,5 @@
 const RestaurantContainerPage = () => {
-    return(
-        <>RestaurantContainerPage</>
-    )
-}
+  return <>RestaurantContainerPage</>;
+};
 
 export default RestaurantContainerPage;

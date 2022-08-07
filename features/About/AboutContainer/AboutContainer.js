@@ -1,7 +1,5 @@
 const AboutContainerPage = () => {
-    return(
-        <>AboutContainerPage</>
-    )
-}
+  return <>AboutContainerPage</>;
+};
 
 export default AboutContainerPage;

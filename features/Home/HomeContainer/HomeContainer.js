@@ -1,7 +1,5 @@
 const HomeContainerPage = () => {
-    return(
-        <>HomeContainerPage</>
-    )
-}
+  return <>HomeContainerPage</>;
+};
 
 export default HomeContainerPage;

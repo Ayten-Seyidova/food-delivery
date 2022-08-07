@@ -1,7 +1,5 @@
 const FaqContainerPage = () => {
-    return(
-        <>FaqContainerPage</>
-    )
-}
+  return <>FaqContainerPage</>;
+};
 
 export default FaqContainerPage;
