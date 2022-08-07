@@ -93,7 +93,7 @@ export const FooterLi = styled.li`
   color: #ffffff;
 
   &:first-child {
-    color: #ffffff;
+    color: white;
     font-size: 18px;
     font-weight: 900;
   }

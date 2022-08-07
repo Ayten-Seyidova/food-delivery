@@ -29,7 +29,7 @@ export const Footer = () => {
                 alt="logo"
               />
               <Description>
-                Lorem ipsum is placeholder text commonly used in the graphic,
+                Lorem ipsum is placeholder text commonly used in the graphic
               </Description>
               <MediaLogos>
                 <MediaLogo>
