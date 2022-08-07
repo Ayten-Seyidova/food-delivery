@@ -1,7 +1,5 @@
 const HowContainerPage = () => {
-    return(
-        <>HowContainerPage</>
-    )
-}
+  return <>HowContainerPage</>;
+};
 
 export default HowContainerPage;
