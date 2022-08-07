@@ -32,7 +32,7 @@ export const Header = () => {
         <Container>
           <Navbar.Brand>
             <img
-              src={require(`../../../public/Image/logo/logo.svg`)}
+              src={require(`../../../public/Image/logo/logo-black.svg`)}
               alt="logo"
             />
           </Navbar.Brand>
