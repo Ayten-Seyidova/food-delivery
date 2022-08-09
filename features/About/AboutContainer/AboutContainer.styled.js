@@ -3,18 +3,15 @@ import styled from "styled-components";
 export const AboutUs = styled.div`
   width: 100%;
   justify-content: space-between;
-  /* align-items: center; */
   display: flex;
   flex-direction: row;
-  /* background-color: green; */
+  padding: 5%;
 `;
 export const AboutLeft = styled.div`
   display: flex;
   flex-direction: column;
   width: 50%;
-  /* justify-content: center; */
   align-items: flex-start;
-  background-color: red;
   height: 100%;
 `;
 
@@ -28,6 +25,9 @@ export const Content = styled.p`
   font-weight: 500;
   font-size: 20px;
   color: #828282;
+  letter-spacing: 1.15px;
+  margin-top: 5%;
+  line-height: 35px
 `;
 export const AboutRight = styled.div`
   width: 50%;
@@ -36,7 +36,6 @@ export const AboutRight = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: greenyellow;
 `;
 
 export const Background = styled.div`
@@ -51,12 +50,10 @@ export const Background = styled.div`
 export const CardContainer = styled.div`
   width: 294px;
   height: 194px;
-  /* background: #ffffff; */
-  /* box-shadow: 0px 3px 8px -2px rgba(0, 0, 0, 0.2); */
   border-radius: 20px;
   position: absolute;
-  margin-top:-30%;
-  margin-left:20%;
+  margin-top: -35%;
+  margin-left: 20%;
 `;
 
 export const Card = styled.div`
@@ -71,18 +68,21 @@ export const CardFood = styled.div`
   position: absolute;
   width: 120px;
   height: 118px;
-  background: url(download.jpg);
+  background-color: white;
   box-shadow: 0px 3px 8px -2px rgba(0, 0, 0, 0.2);
   border-radius: 50%;
   margin-top: -80%;
   margin-left: 45%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
 `;
 
 export const CardDetail = styled.div`
   width: 150px;
   height: 100px;
-  /* background-color: brown; */
-  margin-top: -100px;
+  margin-top: -130px;
   color: #4f4f4f;
   padding-left: 20px;
 `;
