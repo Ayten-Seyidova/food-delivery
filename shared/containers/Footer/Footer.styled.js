@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const FooterMain = styled.div`
   height: 385px;
-  justify-content: flex-end;
+  /* justify-content: center; */
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -53,6 +53,10 @@ export const Logo = styled.img`
 
 export const LeftContent = styled.div`
   padding: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
 `;
 
 export const Description = styled.p`
@@ -82,7 +86,10 @@ export const MediaLogo = styled.div`
 
 export const RightContent = styled.div`
   justify-content: center;
+  align-items: center;
   display: flex;
+  width: 100%;
+  height: 100%;
 `;
 
 export const FooterUl = styled.ul`

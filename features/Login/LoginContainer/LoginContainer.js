@@ -1,4 +1,5 @@
 import { useTranslation } from "react-i18next";
+import React from "react";
 import {
   ErrorText,
   LogDiv,
@@ -6,7 +7,6 @@ import {
   LoginImage,
   LoginImg,
 } from "./LoginContainer.styled";
-import React from "react";
 import { AppBar, Tabs, Tab, Typography, Box } from "@mui/material";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
