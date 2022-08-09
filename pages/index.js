@@ -1,6 +1,5 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
-import axios from "axios";
 import Layout from "../shared/components/Layout";
 import HomeContainerPage from "../features/Home/HomeContainer/HomeContainer";
 

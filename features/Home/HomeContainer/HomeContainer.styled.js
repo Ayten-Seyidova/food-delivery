@@ -36,6 +36,7 @@ export const LeftHeaderP = styled.p`
   color: #181617;
   font-weight: 900;
   font-size: 60px;
+  margin:0px
 `;
 
 export const LeftHeaderP2 = styled.p`
@@ -43,6 +44,7 @@ export const LeftHeaderP2 = styled.p`
   font-size: 22px;
   letter-spacing: 0.03em;
   color: #828282;
+  margin:30px 0px
 `;
 
 export const Buttons = styled.div`
