@@ -1,0 +1,66 @@
+[
+  {
+    "id": 1,
+    "name": "Papa Pizza",
+    "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWcIbqAn-zetoLPo3TMlAc9t3J0u-rKCG96w&usqp=CAU",
+    "description": "Prepared with a  patty, a slice of cheese and special sauce",
+    "restaurant": "Papa John's",
+    "price": 7.9
+  },
+  {
+    "id": 2,
+    "name": "Papa Poper Roll",
+    "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWcIbqAn-zetoLPo3TMlAc9t3J0u-rKCG96w&usqp=CAU",
+    "description": "Prepared with a  patty, a slice of cheese and special sauce",
+    "restaurant": "Papa John's",
+    "price": 4.2
+  },
+  {
+    "id": 3,
+    "name": "Coca Cola",
+    "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWcIbqAn-zetoLPo3TMlAc9t3J0u-rKCG96w&usqp=CAU",
+    "description": "Prepared with a  patty, a slice of cheese and special sauce",
+    "restaurant": "Papa John's",
+    "price": 1.9
+  },
+  {
+    "id": 4,
+    "name": "Papa Coffee",
+    "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWcIbqAn-zetoLPo3TMlAc9t3J0u-rKCG96w&usqp=CAU",
+    "description": "Prepared with a  patty, a slice of cheese and special sauce",
+    "restaurant": "Papa John's",
+    "price": 0.7
+  },
+  {
+    "id": 5,
+    "name": "Papa Pizza",
+    "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWcIbqAn-zetoLPo3TMlAc9t3J0u-rKCG96w&usqp=CAU",
+    "description": "Prepared with a  patty, a slice of cheese and special sauce",
+    "restaurant": "Papa John's",
+    "price": 7.9
+  },
+  {
+    "id": 6,
+    "name": "Papa Pizza",
+    "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWcIbqAn-zetoLPo3TMlAc9t3J0u-rKCG96w&usqp=CAU",
+    "description": "Prepared with a  patty, a slice of cheese and special sauce",
+    "restaurant": "Papa John's",
+    "price": 7.9
+  },
+  {
+    "id": 7,
+    "name": "Papa Pizza",
+    "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWcIbqAn-zetoLPo3TMlAc9t3J0u-rKCG96w&usqp=CAU",
+    "description": "Prepared with a  patty, a slice of cheese and special sauce",
+    "restaurant": "Papa John's",
+    "price": 7.9
+  },
+  {
+    "id": 8,
+    "name": "Papa Pizza",
+    "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWcIbqAn-zetoLPo3TMlAc9t3J0u-rKCG96w&usqp=CAU",
+    "description": "Prepared with a  patty, a slice of cheese and special sauce",
+    "restaurant": "Burger King",
+    "price": 7.9
+  }
+]

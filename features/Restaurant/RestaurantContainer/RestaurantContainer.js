@@ -1,7 +1,12 @@
 import { Pagination, Stack } from "@mui/material";
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { categoryAPI } from "../../../pages/api/category";
 import { restaurantAPI } from "../../../pages/api/restaurant";
+import { setRestaurant } from "../../../store/slice/restaurantSlice";
+import { setCategory } from "../../../store/slice/categorySlice";
+import { setProduct } from "../../../store/slice/productSlice";
 import {
   Card,
   CardBottom,
@@ -19,34 +24,39 @@ import {
   RestMain,
   RestRight,
 } from "./RestaurantContainer.styled";
+import { productsAPI } from "../../../pages/api/products";
 
 const RestaurantContainerPage = () => {
-  const [restaurants, setRestaurants] = useState(null);
-  const [categories, setCategories] = useState(null);
   const page = 0;
 
+  const restaurant = useSelector((state) => state.restaurantSlice.data);
+  const category = useSelector((state) => state.categorySlice.data);
+  const dispatch = useDispatch();
+
   useEffect(() => {
-    getRestaurant();
-    getCategory();
+    getData();
   }, []);
 
-  const getRestaurant = () => {
+  const getData = () => {
+    // get restaurants
     restaurantAPI.then((res) => {
-      setRestaurants(res.data.restaurant);
+      dispatch(setRestaurant(res.data.restaurant));
     });
+    // get categories
+    categoryAPI.then((res) => {
+      dispatch(setCategory(res.data.category));
+    });
+    // get products
+    productsAPI.then((res) => dispatch(setProduct(res.data.products)));
   };
 
-  const getCategory = () => {
-    categoryAPI.then((res) => {
-      setCategories(res.data.category);
-    });
-  };
+  const { push, query } = useRouter();
 
   return (
     <>
       <RestMain>
         <RestLeft>
-          {categories?.map((category) => {
+          {category.map((category) => {
             return (
               <Category key={category.id}>
                 <CategoryImg src={category.img} alt={category.name} />
@@ -56,14 +66,17 @@ const RestaurantContainerPage = () => {
           })}
         </RestLeft>
         <RestRight>
-          {restaurants?.map((restaurant) => (
-            <Card key={restaurant.id}>
+          {restaurant.map((restaurant) => (
+            <Card
+              key={restaurant.id}
+              onClick={() =>
+                push(`/restaurants/restaurant?name=${restaurant.slug}`)
+              }
+            >
               <CardImg src={restaurant.img} alt={restaurant.name} />
               <CardMiddle>
                 <CardHeader>{restaurant.name}</CardHeader>
-                <CardDescription>
-                  {restaurant.categories.map((category) => `${category}, `)}
-                </CardDescription>
+                <CardDescription>{restaurant.categories}</CardDescription>
               </CardMiddle>
               <CardBottom>
                 <CardDelivery>

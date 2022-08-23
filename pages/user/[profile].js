@@ -1,18 +1,18 @@
 import Head from "next/head";
-import UserContainerPage from "../../features/User/UserContainer/UserContainer";
+import RestaurantDetail from "../../features/RestaurantDetail/RestaurantDetail";
 import Layout from "../../shared/components/Layout";
 
-const UserPage = () => {
+const DetailPage = () => {
   return (
     <Layout>
       <Head>
-        <title> Profile | Foody Delivery</title>
+        <title> Restaurants | Foody Delivery</title>
         <meta name="description" content="Foody delivery app" />
         <link rel="icon" href="/favicon.png" />
       </Head>
-      <UserContainerPage />
+      <RestaurantDetail />
     </Layout>
   );
 };
 
-export default UserPage;
+export default DetailPage;

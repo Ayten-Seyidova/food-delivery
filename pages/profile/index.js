@@ -1,8 +1,8 @@
 import Head from "next/head";
-import UserContainerPage from "../../features/User/UserContainer/UserContainer";
+import ProfileContainer from "../../features/Profile/ProfileContainer/ProfileContainer";
 import Layout from "../../shared/components/Layout";
 
-const UserPage = () => {
+const Profile = () => {
   return (
     <Layout>
       <Head>
@@ -10,9 +10,9 @@ const UserPage = () => {
         <meta name="description" content="Foody delivery app" />
         <link rel="icon" href="/favicon.png" />
       </Head>
-      <UserContainerPage />
+      <ProfileContainer />
     </Layout>
   );
 };
 
-export default UserPage;
+export default Profile;
