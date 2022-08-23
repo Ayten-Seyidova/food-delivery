@@ -1,20 +1,23 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { restaurantAPI } from "../../pages/api/restaurant";
 
 const initialState = {
   data: [],
+  myRestaurant: {},
 };
 
 export const restaurantSlice = createSlice({
   name: "restaurant",
   initialState,
   reducers: {
-    setRestaurant: (state,action) => {
+    setRestaurant: (state, action) => {
       state.data = action.payload;
+    },
+    setMyRestaurant: (state, action) => {
+      state.myRestaurant = action.payload;
     },
   },
 });
 
-export const { setRestaurant } = restaurantSlice.actions;
+export const { setRestaurant, setMyRestaurant } = restaurantSlice.actions;
 
 export default restaurantSlice.reducer;

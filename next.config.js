@@ -7,4 +7,7 @@ module.exports = withImages({
     // ssr and displayName are configured by default
     styledComponents: true,
   },
+  images: {
+    domains: ["images.fastcompany.net"],
+  },
 });

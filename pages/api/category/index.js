@@ -5,7 +5,7 @@ AxiosMockCreate.onGet("/category").reply(() => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve([200, { category: categoryData }]);
-    }, 2000);
+    }, 200);
   });
 });
 
