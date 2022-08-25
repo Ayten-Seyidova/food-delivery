@@ -26,12 +26,18 @@ import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
 import Button from "@mui/material/Button";
 import { MdOutlineShoppingBasket, MdOutlineDeleteSweep } from "react-icons/md";
-import { addBasket } from "../../store/slice/basketSlice";
+import basketSlice, {
+  addBasket,
+  incrementQuantity,
+  decrementQuantity,
+  removeItem,
+} from "../../store/slice/basketSlice";
 
 function RestaurantDetail(props) {
-  let { query } = useRouter();
+  let { query, push } = useRouter();
 
   const product = useSelector((state) => state.productSlice.data);
+  const cart = useSelector((state) => state.basketSlice.cart);
   const restaurant = useSelector((state) => state.restaurantSlice.data);
   const dispatch = useDispatch();
 
@@ -101,7 +107,6 @@ function RestaurantDetail(props) {
                     background: "#6fcf97",
                     width: "40px",
                     height: "40px",
-                    // borderRadius: "50%",
                   }}
                 >
                   +
@@ -112,9 +117,9 @@ function RestaurantDetail(props) {
           <div>
             <Checkout>
               <BasketHeader>
-                <MdOutlineShoppingBasket size={30} /> 3 items
+                <MdOutlineShoppingBasket size={30} /> {cart.length} items
               </BasketHeader>
-              {products.map((item) => (
+              {cart.map((item) => (
                 <BasketProduct key={item.id}>
                   <img
                     src={item.img}
@@ -126,17 +131,26 @@ function RestaurantDetail(props) {
                       {item.name}
                     </h1>
                     <p style={{ fontSize: 14, color: "#4f4f4f" }}>
-                      {item.price}
+                      ${(item.price * item.quantity) / 1.0}
                     </p>
                   </BasketProductContent>
                   <Counter>
-                    <PlusMinusButton>+</PlusMinusButton>
-                    <p style={{ margin: 0, padding: 0 }}>2</p>
-                    <PlusMinusButton>-</PlusMinusButton>
+                    <PlusMinusButton
+                      onClick={() => dispatch(incrementQuantity(item.id))}
+                    >
+                      +
+                    </PlusMinusButton>
+                    <p style={{ margin: 0, padding: 0 }}>{item.quantity}</p>
+                    <PlusMinusButton
+                      onClick={() => dispatch(decrementQuantity(item.id))}
+                    >
+                      -
+                    </PlusMinusButton>
                   </Counter>
                   <MdOutlineDeleteSweep
                     size={27}
                     color="#BDBDBD"
+                    onClick={() => dispatch(removeItem(item.id))}
                     style={{
                       top: 0,
                       bottom: 100,
@@ -147,7 +161,7 @@ function RestaurantDetail(props) {
                 </BasketProduct>
               ))}
             </Checkout>
-            <CheckoutButton>
+            <CheckoutButton onClick={() => push("user?page=basket")}>
               Checkout
               <div
                 style={{
@@ -161,7 +175,7 @@ function RestaurantDetail(props) {
                   display: "flex",
                 }}
               >
-                $37.4
+                ${cart.reduce((a, b) => a + b.price * b.quantity, 0)}
               </div>
             </CheckoutButton>
           </div>

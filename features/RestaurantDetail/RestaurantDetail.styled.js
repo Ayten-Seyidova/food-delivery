@@ -77,7 +77,7 @@ export const Checkout = styled.div`
 `;
 
 export const CheckoutButton = styled.div`
-  width: 372px;
+  width: 100%;
   background-color: #d63626;
   border-radius: 100px;
   height: 47px;

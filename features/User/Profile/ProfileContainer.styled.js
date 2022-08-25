@@ -2,11 +2,9 @@ import styled from "styled-components";
 
 export const ProfileContainerDiv = styled.div`
   justify-content: center;
-  /* align-items: center; */
   display: grid;
   grid-template-columns: 38% 62%;
-  /* margin: 1% 0; */
-  padding:4%;
+  padding: 4%;
   color: black;
   background-color: #f3f4f6;
 `;
