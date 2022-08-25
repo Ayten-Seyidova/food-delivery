@@ -1,20 +1,28 @@
 import { Options, UserContainer, UserProfile, Option } from "./User.styled";
 import { IoBasketOutline } from "react-icons/io5";
+import { useRouter } from "next/router";
 
-const UserContainerPage = () => {
+const UserContainerPage = (props) => {
+  const router = useRouter();
   return (
     <UserContainer>
       <Options>
-        <Option>
-          <IoBasketOutline size={24}/>
+        <Option onClick={() => router.push("/user?page=profile")}>
+          <IoBasketOutline size={24} />
           Profile
         </Option>
-        <Option>Your Basket</Option>
-        <Option>Your Orders</Option>
-        <Option>Checkout</Option>
-        <Option>Logout</Option>
+        <Option onClick={() => router.push("/user?page=basket")}>
+          Your Basket
+        </Option>
+        <Option onClick={() => router.push("/user?page=orders")}>
+          Your Orders
+        </Option>
+        <Option onClick={() => router.push("/user?page=checkout")}>
+          Checkout
+        </Option>
+        <Option onClick={() => router.push("/user?page=logout")}>Logout</Option>
       </Options>
-      <UserProfile>wefewf</UserProfile>
+      {props.component}
     </UserContainer>
   );
 };

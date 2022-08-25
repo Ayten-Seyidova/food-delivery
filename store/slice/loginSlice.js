@@ -1,10 +1,7 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, current } from "@reduxjs/toolkit";
 
 const initialState = {
-  // user: {
-  //   userName: "TeamReact1",
-  //   password: "12345678",
-  // },
+  user: {},
   data: [],
   isLogin: false,
 };
@@ -17,9 +14,12 @@ export const loginSlice = createSlice({
       state.isLogin = action.payload;
       state.data = action.payload;
     },
+    getUserData: (state, action) => {
+      state.user = action.payload;
+    },
   },
 });
 
-export const { setLogin } = loginSlice.actions;
+export const { setLogin, getUserData } = loginSlice.actions;
 
 export default loginSlice.reducer;

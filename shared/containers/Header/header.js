@@ -1,11 +1,45 @@
 import { useTranslation } from "react-i18next";
 import Image from "next/image";
 import Link from "next/link";
-import { Navbar, Container, Nav } from "react-bootstrap";
+import * as React from "react";
+import Avatar from "@mui/material/Avatar";
+import Stack from "@mui/material/Stack";
 
 import az from "../../../public/Image/flag/az.svg";
 import en from "../../../public/Image/flag/en.svg";
 import fr from "../../../public/Image/flag/fr.svg";
+import { useDispatch, useSelector } from "react-redux";
+import { loginAPI } from "../../../pages/api/login";
+import { Button, Container, Nav, Navbar } from "react-bootstrap";
+import { BsPersonCircle } from "react-icons/bs";
+import { getUserData } from "../../../store/slice/loginSlice";
+
+function stringToColor(string) {
+  let hash = 0;
+  let i;
+
+  for (i = 0; i < string.length; i += 1) {
+    hash = string.charCodeAt(i) + ((hash << 5) - hash);
+  }
+
+  let color = "#";
+
+  for (i = 0; i < 3; i += 1) {
+    const value = (hash >> (i * 8)) & 0xff;
+    color += `00${value.toString(16)}`.slice(-2);
+  }
+
+  return color;
+}
+
+function stringAvatar(name) {
+  return {
+    sx: {
+      bgcolor: stringToColor(name),
+    },
+    children: `${name.split(" ")[0][0]}${name.split(" ")[1][0]}`,
+  };
+}
 
 const myLoader = ({ src, width, quality }) => {
   return `https://example.com/${src}?w=${width}&q=${quality || 100}`;
@@ -25,6 +59,25 @@ const flags = {
 
 export const Header = () => {
   const { t, i18n } = useTranslation();
+  const [user, setUser] = React.useState();
+
+  const dispatch = useDispatch();
+  const userName = useSelector((state) => state.loginSlice.user.userName);
+
+  React.useEffect(() => {
+    getUserName();
+  }, []);
+
+  const getUserName = () => {
+    loginAPI.then((res) => {
+      res.data.login.map((item) => {
+        if (item.userName == userName) {
+          setUser(item.fullName);
+          dispatch(getUserData(item));
+        }
+      });
+    });
+  };
 
   return (
     <header className="header-section">
@@ -105,11 +158,23 @@ export const Header = () => {
                 ))}
               </ul>
             </div>
-            <div className="sign-button">
-              <Link href="/login">
-                <a>{t("signup")}</a>
-              </Link>
-            </div>
+            {user ? (
+              <div className="avatar">
+                <Stack direction="row" spacing={2}>
+                  <BsPersonCircle size={43} color="darkred" />
+
+                  <h5>
+                    <Link href="/user">{user}</Link>
+                  </h5>
+                </Stack>
+              </div>
+            ) : (
+              <div className="sign-button">
+                <Link href="/login">
+                  <a>{t("signup")}</a>
+                </Link>
+              </div>
+            )}
           </div>
         </Container>
       </Navbar>

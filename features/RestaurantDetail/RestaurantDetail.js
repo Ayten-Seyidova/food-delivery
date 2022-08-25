@@ -29,7 +29,7 @@ import { MdOutlineShoppingBasket, MdOutlineDeleteSweep } from "react-icons/md";
 import { addBasket } from "../../store/slice/basketSlice";
 
 function RestaurantDetail(props) {
-  const { query } = useRouter();
+  let { query } = useRouter();
 
   const product = useSelector((state) => state.productSlice.data);
   const restaurant = useSelector((state) => state.restaurantSlice.data);
