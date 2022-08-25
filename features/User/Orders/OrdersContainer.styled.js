@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const ProfileContainerDiv = styled.div`
+export const OrdersDiv = styled.div`
   justify-content: center;
   align-items: center;
   display: grid;

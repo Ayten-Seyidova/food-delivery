@@ -15,7 +15,7 @@ import { useRouter } from "next/router";
 import { ToastContainer, toast } from "react-toastify";
 import { useFormik } from "formik";
 import { useSelector, useDispatch } from "react-redux";
-import { setLogin } from "../../../store/slice/loginSlice";
+import { getUserData, setLogin } from "../../../store/slice/loginSlice";
 import { loginAPI, loginCreateAPI } from "../../../pages/api/login";
 
 function TabPanel(props) {
@@ -111,6 +111,7 @@ const LoginContainerPage = () => {
           resetForm();
           breakCondition = true;
           router.push("/");
+          dispatch(getUserData(values));
           return;
         }
       }
