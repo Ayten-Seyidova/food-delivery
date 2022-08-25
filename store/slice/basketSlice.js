@@ -1,7 +1,7 @@
-import { createSlice, current } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  basketItems: [],
+  cart: [],
 };
 
 export const basketSlice = createSlice({
@@ -9,23 +9,37 @@ export const basketSlice = createSlice({
   initialState,
   reducers: {
     addBasket: (state, action) => {
-      const alreadyExists = Object.keys(state.basketItems).find(
+      const itemInCart = state.cart.find(
         (item) => item.id === action.payload.id
       );
-      if (alreadyExists) {
-        const newItem = {}
-        state.basketItems = [...state.basketItems,{...state.basketItems}];
-        l;
+      if (itemInCart) {
+        itemInCart.quantity++;
       } else {
-        state.basketItems = [
-          ...state.basketItems,
-          { item: action.payload, count: 1 },
-        ];
+        state.cart.push({ ...action.payload, quantity: 1 });
       }
+    },
+    incrementQuantity: (state, action) => {
+      const item = state.cart.find((item) => item.id === action.payload);
+      item.quantity++;
+    },
+    decrementQuantity: (state, action) => {
+      const item = state.cart.find((item) => item.id === action.payload);
+      if (item.quantity === 1) {
+        item.quantity = 1;
+      } else {
+        item.quantity--;
+      }
+    },
+    removeItem: (state, action) => {
+      const removeItem = state.cart.filter(
+        (item) => item.id !== action.payload
+      );
+      state.cart = removeItem;
     },
   },
 });
 
-export const { addBasket } = basketSlice.actions;
+export const { addBasket, incrementQuantity, decrementQuantity, removeItem } =
+  basketSlice.actions;
 
 export default basketSlice.reducer;
