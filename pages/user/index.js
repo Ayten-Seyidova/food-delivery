@@ -7,8 +7,11 @@ import ErrorPage from "../404/index";
 import ProfileContainer from "../../features/User/Profile/ProfileContainer";
 import OrdersContainer from "../../features/User/Orders/OrdersContainer";
 import CheckoutContainer from "../../features/User/Checkout/CheckoutContainer";
+import { useSelector } from "react-redux";
+import CompletedCheckout from "../../features/User/Checkout/CompletedCheckout";
 
 const UserPage = () => {
+  const receivedOrder = useSelector((state) => state.basketSlice.cart.length);
   const { query } = useRouter();
   let component = {};
   const renderPage = () => {
@@ -22,7 +25,11 @@ const UserPage = () => {
       case "orders":
         return (component = <OrdersContainer />);
       case "checkout":
-        return (component = <CheckoutContainer />);
+        return (component = receivedOrder ? (
+          <CheckoutContainer />
+        ) : (
+          <CompletedCheckout />
+        ));
       default:
         return (component = <ErrorPage />);
     }

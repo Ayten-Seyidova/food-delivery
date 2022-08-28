@@ -1,13 +1,12 @@
 import styled from "styled-components";
 
 export const OrdersDiv = styled.div`
-  justify-content: center;
-  align-items: center;
-  display: grid;
-  grid-template-columns: 38% 62%;
-  margin: 1% 0;
+  display: flex;
+  flex-direction: column;
+  padding: 4%;
   color: black;
-  background-color: rebeccapurple;
+  background-color: #f3f4f6;
+  border-radius: 5px;
 `;
 
 export const Header = styled.h1`

@@ -7,6 +7,7 @@ export const UserContainer = styled.div`
   gap: 1%;
   width: 100%;
   height: 515px;
+  /* overflow-y: scroll; */
 `;
 
 export const Options = styled.div`
