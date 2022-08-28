@@ -8,7 +8,8 @@
     "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWcIbqAn-zetoLPo3TMlAc9t3J0u-rKCG96w&usqp=CAU",
     "new": false,
     "slug": "coffee-mania",
-    "address": "19 Nizami street, Sabail, Baku"
+    "address": "19 Nizami street, Sabail, Baku",
+    "category": "coffee"
   },
   {
     "id": 2,
@@ -19,7 +20,8 @@
     "img": "https://seeklogo.com/images/B/Burger_King-logo-EB00FAD8D3-seeklogo.com.png",
     "new": true,
     "slug": "burger-king",
-    "address": "19 Nizami street, Sabail, Baku"
+    "address": "19 Nizami street, Sabail, Baku",
+    "category": "fast-food"
   },
   {
     "id": 3,
@@ -30,7 +32,8 @@
     "img": "https://cdn.frisaga.com/catalog/image/place/brandlogo/restaurant/aca5a58c-c22d-4e29-8b82-7ef4ab71f325.jpg",
     "new": false,
     "slug": "anadolu-restaurant",
-    "address": "19 Nizami street, Sabail, Baku"
+    "address": "19 Nizami street, Sabail, Baku",
+    "category": "kebab"
   },
   {
     "id": 4,
@@ -41,7 +44,8 @@
     "img": "https://upload.wikimedia.org/wikipedia/ru/thumb/c/c4/Papa_John%27s_Pizza_logo.svg/1280px-Papa_John%27s_Pizza_logo.svg.png",
     "new": false,
     "slug": "papa-johns",
-    "address": "19 Nizami street, Sabail, Baku"
+    "address": "19 Nizami street, Sabail, Baku",
+    "category": "pizza"
   },
   {
     "id": 5,
@@ -52,7 +56,8 @@
     "img": "https://pizzamizza.az/upload/main/650/65087f8d11493c930b401f03ff4e0d1b.png",
     "new": false,
     "slug": "pizza-mizza",
-    "address": "19 Nizami street, Sabail, Baku"
+    "address": "19 Nizami street, Sabail, Baku",
+    "category": "pizza"
   },
   {
     "id": 6,
@@ -63,7 +68,8 @@
     "img": "https://upload.wikimedia.org/wikipedia/sco/thumb/b/bf/KFC_logo.svg/1200px-KFC_logo.svg.png",
     "new": false,
     "slug": "kfc",
-    "address": "19 Nizami street, Sabail, Baku"
+    "address": "19 Nizami street, Sabail, Baku",
+    "category": "fast-food"
   },
   {
     "id": 7,
@@ -74,7 +80,8 @@
     "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/McDonald%27s_Golden_Arches.svg/1200px-McDonald%27s_Golden_Arches.svg.png",
     "new": false,
     "slug": "mcdonalds",
-    "address": "19 Nizami street, Sabail, Baku"
+    "address": "19 Nizami street, Sabail, Baku",
+    "category": "fast-food"
   },
   {
     "id": 8,
@@ -85,7 +92,8 @@
     "img": "https://upload.wikimedia.org/wikipedia/en/thumb/d/d3/Starbucks_Corporation_Logo_2011.svg/640px-Starbucks_Corporation_Logo_2011.svg.png",
     "new": false,
     "slug": "starbucks",
-    "address": "19 Nizami street, Sabail, Baku"
+    "address": "19 Nizami street, Sabail, Baku",
+    "category": "coffee"
   },
   {
     "id": 9,
@@ -96,7 +104,8 @@
     "img": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Subway_2016_logo.svg",
     "new": false,
     "slug": "subway",
-    "address": "19 Nizami street, Sabail, Baku"
+    "address": "19 Nizami street, Sabail, Baku",
+    "category": "fast-food"
   },
   {
     "id": 10,
@@ -107,7 +116,8 @@
     "img": "https://upload.wikimedia.org/wikipedia/commons/3/3e/Domino%27s_pizza_logo.svg",
     "new": false,
     "slug": "dominos",
-    "address": "19 Nizami street, Sabail, Baku"
+    "address": "19 Nizami street, Sabail, Baku",
+    "category": "pizza"
   },
   {
     "id": 11,
@@ -118,6 +128,7 @@
     "img": "https://upload.wikimedia.org/wikipedia/commons/2/22/Dunkin%27_logo.svg",
     "new": false,
     "slug": "dunkin",
-    "address": "19 Nizami street, Sabail, Baku"
+    "address": "19 Nizami street, Sabail, Baku",
+    "category": "coffee"
   }
 ]

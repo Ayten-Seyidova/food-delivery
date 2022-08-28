@@ -58,7 +58,6 @@ export const RestRight = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
   padding: 15px;
   overflow-y: auto;
   height: 700px;

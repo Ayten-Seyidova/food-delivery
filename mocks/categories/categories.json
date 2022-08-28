@@ -2,41 +2,49 @@
   {
     "id": 1,
     "name": "Chinese",
-    "img": "https://www.clipartmax.com/png/full/29-293036_chinese-food-chinese-food-vector-png.png"
+    "img": "https://www.clipartmax.com/png/full/29-293036_chinese-food-chinese-food-vector-png.png",
+    "tag": "chinese"
   },
   {
     "id": 2,
     "name": "Sea-food",
-    "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtmCWhskZ2Gwe0miJgV_JGkgShGkrm_6zZsg&usqp=CAU"
+    "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtmCWhskZ2Gwe0miJgV_JGkgShGkrm_6zZsg&usqp=CAU",
+    "tag": "sea-food"
   },
   {
     "id": 3,
     "name": "Thai",
-    "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNAiCwme6Xacc6FV8B6mqM35DvCe1hQL9eFQ&usqp=CAU"
+    "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNAiCwme6Xacc6FV8B6mqM35DvCe1hQL9eFQ&usqp=CAU",
+    "tag": "thai"
   },
   {
     "id": 4,
     "name": "Fast-food",
-    "img": "https://static.vecteezy.com/system/resources/previews/000/964/198/large_2x/fast-food-meal-set-vector.jpg"
+    "img": "https://static.vecteezy.com/system/resources/previews/000/964/198/large_2x/fast-food-meal-set-vector.jpg",
+    "tag": "fast-food"
   },
   {
     "id": 5,
     "name": "Burger",
-    "img": "https://media.istockphoto.com/vectors/vector-realistic-hamburger-fast-food-vector-id673056354?s=612x612"
+    "img": "https://media.istockphoto.com/vectors/vector-realistic-hamburger-fast-food-vector-id673056354?s=612x612",
+    "tag": "burger"
   },
   {
     "id": 6,
     "name": "Doner",
-    "img": "https://st2.depositphotos.com/3591055/44539/v/1600/depositphotos_445398228-stock-illustration-wrap-kebab-cheese-ingredients-kebab.jpg"
+    "img": "https://st2.depositphotos.com/3591055/44539/v/1600/depositphotos_445398228-stock-illustration-wrap-kebab-cheese-ingredients-kebab.jpg",
+    "tag": "doner"
   },
   {
     "id": 7,
     "name": "Pizza",
-    "img": "https://thumbs.dreamstime.com/z/slice-pizza-vector-illustration-slice-pizza-vibrant-colors-food-illustration-slice-pizza-vector-illustration-slice-167641084.jpg"
+    "img": "https://thumbs.dreamstime.com/z/slice-pizza-vector-illustration-slice-pizza-vibrant-colors-food-illustration-slice-pizza-vector-illustration-slice-167641084.jpg",
+    "tag": "pizza"
   },
   {
     "id": 8,
     "name": "Kebab",
-    "img": "https://image.shutterstock.com/image-vector/roasted-on-fire-bbq-food-600w-629590673.jpg"
+    "img": "https://image.shutterstock.com/image-vector/roasted-on-fire-bbq-food-600w-629590673.jpg",
+    "tag": "kebab"
   }
 ]

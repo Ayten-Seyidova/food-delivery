@@ -2,17 +2,70 @@ import { useTranslation } from "react-i18next";
 import Image from "next/image";
 import Link from "next/link";
 import * as React from "react";
-import Avatar from "@mui/material/Avatar";
 import Stack from "@mui/material/Stack";
+import { MdOutlineShoppingBasket } from "react-icons/md";
 
 import az from "../../../public/Image/flag/az.svg";
 import en from "../../../public/Image/flag/en.svg";
 import fr from "../../../public/Image/flag/fr.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { loginAPI } from "../../../pages/api/login";
-import { Button, Container, Nav, Navbar } from "react-bootstrap";
+import { Container, Nav, Navbar } from "react-bootstrap";
 import { BsPersonCircle } from "react-icons/bs";
 import { getUserData } from "../../../store/slice/loginSlice";
+import { useRouter } from "next/router";
+
+import Button from "@mui/material/Button";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+
+function BasicMenu() {
+  const { push } = useRouter();
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = (props) => {
+    setAnchorEl(null);
+    push(props);
+  };
+
+  return (
+    <div>
+      <Button
+        id="basic-button"
+        aria-controls={open ? "basic-menu" : undefined}
+        aria-haspopup="true"
+        aria-expanded={open ? "true" : undefined}
+        onClick={handleClick}
+      >
+        <BsPersonCircle size={43} color="darkred" />
+      </Button>
+      <Menu
+        id="basic-menu"
+        anchorEl={anchorEl}
+        open={open}
+        onClose={handleClose}
+        MenuListProps={{
+          "aria-labelledby": "basic-button",
+        }}
+      >
+        <MenuItem onClick={() => handleClose("/user")}>Profile</MenuItem>
+        <MenuItem onClick={() => handleClose("/user?page=basket")}>
+          Your Basket
+        </MenuItem>
+        <MenuItem onClick={() => handleClose("/user?page=orders")}>
+          Your Orders
+        </MenuItem>
+        <MenuItem onClick={() => handleClose("/user?page=checkout")}>
+          Checkout
+        </MenuItem>
+        <MenuItem onClick={() => handleClose("/user")}>Logout</MenuItem>
+      </Menu>
+    </div>
+  );
+}
 
 function stringToColor(string) {
   let hash = 0;
@@ -60,6 +113,7 @@ const flags = {
 export const Header = () => {
   const { t, i18n } = useTranslation();
   const [user, setUser] = React.useState();
+  const router = useRouter();
 
   const dispatch = useDispatch();
   const userName = useSelector((state) => state.loginSlice.user.userName);
@@ -158,13 +212,27 @@ export const Header = () => {
                 ))}
               </ul>
             </div>
+            <MdOutlineShoppingBasket
+              style={{
+                background: "#EB5757",
+                borderRadius: "50%",
+                padding: 2,
+                color: "white",
+                width: 43,
+                height: "auto",
+              }}
+              onMouseOver={({ target }) => (target.style.cursor = "pointer")}
+              onClick={() => router.push("/user?page=basket")}
+            />
             {user ? (
               <div className="avatar">
                 <Stack direction="row" spacing={2}>
-                  <BsPersonCircle size={43} color="darkred" />
-
-                  <h5>
-                    <Link href="/user">{user}</Link>
+                  <BasicMenu />
+                  <h5
+                    className="user-name"
+                    onClick={() => router.push("/user")}
+                  >
+                    {user}
                   </h5>
                 </Stack>
               </div>

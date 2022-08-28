@@ -27,7 +27,7 @@ export const Checkout = styled.div`
 
 export const CheckoutButton = styled.div`
   width: 100%;
-  background-color: red;
+  background-color: #d63626;
   border-radius: 100px;
   height: 47px;
   justify-content: space-between;
@@ -38,7 +38,7 @@ export const CheckoutButton = styled.div`
   padding: 0px 2px 0px 25px;
   font-weight: 500;
   left: 0px;
-  margin-top: 40px
+  margin-top: 40px;
 `;
 
 export const BasketHeader = styled.p`
