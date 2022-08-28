@@ -1,6 +1,4 @@
 import Head from "next/head";
-import { useRouter } from "next/router";
-import { useParams } from "react-router-dom";
 import RestaurantContainerPage from "../../features/Restaurant/RestaurantContainer/RestaurantContainer";
 import Layout from "../../shared/components/Layout";
 

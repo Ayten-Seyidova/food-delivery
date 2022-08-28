@@ -32,10 +32,11 @@ import {
   decrementQuantity,
   removeItem,
 } from "../../store/slice/basketSlice";
-import { useLocation } from "react-router-dom";
 
-function RestaurantDetail(props) {
-  let { query, push } = useRouter();
+function RestaurantDetail() {
+  let { push, back } = useRouter();
+  const router = useRouter();
+  const query = Object.values(router)[2];
 
   const product = useSelector((state) => state.productSlice.data);
   const cart = useSelector((state) => state.basketSlice.cart);
@@ -43,40 +44,35 @@ function RestaurantDetail(props) {
   const dispatch = useDispatch();
 
   const myRestaurant = restaurant.find((item) => item.slug == query.name);
+  console.log(restaurant);
+  console.log(myRestaurant);
   const products = product.filter(
     (item) => item.restaurant == myRestaurant.name
   );
-  // const [myRestaurant, setMyRestaurant] = useState();
-  // const myRestaurant = useSelector(
-  //   (state) => state.restaurantSlice.myRestaurant
-  // );
-  // const selectedProducts = useSelector(
-  //   (state) => state.productSlice.selectedProducts
-  // );
 
   return (
     <div>
       <RestDetail>
         <Cover>
           <img
-            src={myRestaurant.img}
-            alt={myRestaurant.name}
+            src={myRestaurant?.img}
+            alt={myRestaurant?.name}
             style={{ width: "100%", height: "100%", objectFit: "contain" }}
           />
         </Cover>
         <CoverDetail>
           <CoverDetailLeft>
-            <Name>{myRestaurant.name}</Name>
-            <Text>{myRestaurant.address}</Text>
+            <Name>{myRestaurant?.name}</Name>
+            <Text>{myRestaurant?.address}</Text>
           </CoverDetailLeft>
           <CoverDetailRight>
             <Cuisine>
               <Text style={{ fontSize: 18 }}>Cuisine</Text>
-              <Text>{myRestaurant.categories}</Text>
+              <Text>{myRestaurant?.categories}</Text>
             </Cuisine>
             <ButtonDiv
               style={{ backgroundColor: "white", color: "#d63626" }}
-            >{`${myRestaurant.deliveryPrice} $ Delivery`}</ButtonDiv>
+            >{`${myRestaurant?.deliveryPrice} $ Delivery`}</ButtonDiv>
             <ButtonDiv onClick={() => back()}>Go Back</ButtonDiv>
           </CoverDetailRight>
         </CoverDetail>

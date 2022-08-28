@@ -7,7 +7,6 @@ export const UserContainer = styled.div`
   gap: 1%;
   width: 100%;
   height: 515px;
-  /* overflow-y: scroll; */
 `;
 
 export const Options = styled.div`
@@ -15,7 +14,10 @@ export const Options = styled.div`
   width: 99%;
   border-radius: 5px;
   padding: 60px;
-  gap: 20px;
+  /* gap: 250px; */
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 `;
 
 export const UserPage = styled.div`
@@ -40,11 +42,12 @@ export const Option = styled.div`
   font-size: 20px;
   display: flex;
   flex-direction: row;
-  /* align-items: center; */
   letter-spacing: 0.03em;
+  gap: 6%;
   color: #828282;
-  /* justify-content: center; */
   margin-bottom: 20px;
+  align-items: center;
+  padding-left: 5%;
   &:hover {
     background-color: rgba(214, 54, 38, 0.1);
     cursor: pointer;
