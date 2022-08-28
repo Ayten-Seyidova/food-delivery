@@ -26,12 +26,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
 import Button from "@mui/material/Button";
 import { MdOutlineShoppingBasket, MdOutlineDeleteSweep } from "react-icons/md";
-import basketSlice, {
+import {
   addBasket,
   incrementQuantity,
   decrementQuantity,
   removeItem,
 } from "../../store/slice/basketSlice";
+import { useLocation } from "react-router-dom";
 
 function RestaurantDetail(props) {
   let { query, push } = useRouter();
@@ -41,7 +42,7 @@ function RestaurantDetail(props) {
   const restaurant = useSelector((state) => state.restaurantSlice.data);
   const dispatch = useDispatch();
 
-  const myRestaurant = restaurant.filter((item) => item.slug == query.name)[0];
+  const myRestaurant = restaurant.find((item) => item.slug == query.name);
   const products = product.filter(
     (item) => item.restaurant == myRestaurant.name
   );
@@ -161,7 +162,7 @@ function RestaurantDetail(props) {
                 </BasketProduct>
               ))}
             </Checkout>
-            <CheckoutButton onClick={() => push("user?page=basket")}>
+            <CheckoutButton onClick={() => push("/user?page=basket")}>
               Checkout
               <div
                 style={{

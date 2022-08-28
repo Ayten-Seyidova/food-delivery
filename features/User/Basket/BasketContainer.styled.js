@@ -2,11 +2,12 @@ import styled from "styled-components";
 
 export const BasketDiv = styled.div`
   justify-content: center;
-  display: grid;
-  grid-template-columns: 38% 62%;
+  display: flex;
+  flex-direction: column;
   padding: 4%;
   color: black;
   background-color: #f3f4f6;
+  height: 515px;
 `;
 
 export const Header = styled.h1`
@@ -18,18 +19,15 @@ export const Header = styled.h1`
   margin-bottom: 3%;
 `;
 export const Checkout = styled.div`
-  padding: 3%;
-  display: flex;
-  flex-direction: column;
   background-color: #f3f4f6;
   width: 95%;
-  height: 400px;
-  overflow-y: auto;
+  height: 290px;
+  overflow-y: scroll;
 `;
 
 export const CheckoutButton = styled.div`
   width: 100%;
-  background-color: #d63626;
+  background-color: red;
   border-radius: 100px;
   height: 47px;
   justify-content: space-between;
@@ -39,6 +37,8 @@ export const CheckoutButton = styled.div`
   flex-direction: row;
   padding: 0px 2px 0px 25px;
   font-weight: 500;
+  left: 0px;
+  margin-top: 40px
 `;
 
 export const BasketHeader = styled.p`

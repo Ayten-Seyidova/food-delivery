@@ -33,7 +33,7 @@
   },
   {
     "id": 5,
-    "name": "Papa Pizza",
+    "name": "Papa Fanta",
     "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWcIbqAn-zetoLPo3TMlAc9t3J0u-rKCG96w&usqp=CAU",
     "description": "Prepared with a  patty, a slice of cheese and special sauce",
     "restaurant": "Papa John's",
@@ -41,7 +41,7 @@
   },
   {
     "id": 6,
-    "name": "Papa Pizza",
+    "name": "Papa Pepsi",
     "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWcIbqAn-zetoLPo3TMlAc9t3J0u-rKCG96w&usqp=CAU",
     "description": "Prepared with a  patty, a slice of cheese and special sauce",
     "restaurant": "Papa John's",
@@ -49,7 +49,7 @@
   },
   {
     "id": 7,
-    "name": "Papa Pizza",
+    "name": "Papa Diaz",
     "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWcIbqAn-zetoLPo3TMlAc9t3J0u-rKCG96w&usqp=CAU",
     "description": "Prepared with a  patty, a slice of cheese and special sauce",
     "restaurant": "Papa John's",
@@ -57,7 +57,7 @@
   },
   {
     "id": 8,
-    "name": "Papa Pizza",
+    "name": "Papa Roll",
     "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWcIbqAn-zetoLPo3TMlAc9t3J0u-rKCG96w&usqp=CAU",
     "description": "Prepared with a  patty, a slice of cheese and special sauce",
     "restaurant": "Burger King",

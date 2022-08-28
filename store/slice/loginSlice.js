@@ -18,9 +18,9 @@ export const loginSlice = createSlice({
       state.user = action.payload;
     },
     setLogout: (state, action) => {
-      console.log(action.payload)
       state.data = [];
       state.isLogin = false;
+      state.user = {};
     },
   },
 });

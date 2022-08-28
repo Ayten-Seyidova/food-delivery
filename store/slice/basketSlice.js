@@ -1,7 +1,10 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, current } from "@reduxjs/toolkit";
+import { useId } from "react";
 
 const initialState = {
   cart: [],
+  orders: [],
+  orderId: 1000,
 };
 
 export const basketSlice = createSlice({
@@ -36,10 +39,40 @@ export const basketSlice = createSlice({
       );
       state.cart = removeItem;
     },
+    checkout: (state, action) => {
+      const orderId = state.orderId;
+      const orderDate = new Date();
+      orderDate =
+        orderDate.getDate() +
+        "-" +
+        orderDate.getMonth() +
+        "-" +
+        orderDate.getFullYear();
+      const amount = state.cart.reduce((a, b) => a + b.price * b.quantity, 0);
+      const address = action.payload.address;
+      const contact = action.payload.contact;
+      const payment = action.payload.payment;
+      state.orders.push({
+        orderId,
+        orderDate,
+        address,
+        amount,
+        payment,
+        contact,
+      });
+      state.cart = [];
+      state.orderId = state.orderId + 1;
+    },
   },
 });
 
-export const { addBasket, incrementQuantity, decrementQuantity, removeItem } =
-  basketSlice.actions;
+export const {
+  addBasket,
+  incrementQuantity,
+  decrementQuantity,
+  removeItem,
+  checkout,
+  completedOrder,
+} = basketSlice.actions;
 
 export default basketSlice.reducer;

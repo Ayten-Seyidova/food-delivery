@@ -4,19 +4,26 @@ import {
   CheckoutButton,
   BasketHeader,
 } from "./BasketContainer.styled";
-import { MdOutlineShoppingBasket } from "react-icons/md";
-import { useSelector } from "react-redux";
+import { MdOutlineDeleteSweep, MdOutlineShoppingBasket } from "react-icons/md";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  BasketProduct,
+  BasketProductContent,
+  Counter,
+  PlusMinusButton,
+} from "../../RestaurantDetail/RestaurantDetail.styled";
 
 const BasketContainer = () => {
+  const dispatch = useDispatch();
   const cart = useSelector((state) => state.basketSlice.cart);
   return (
     <BasketDiv>
-      <h1>Basket</h1>
+      <h1 style={{ fontWeight: 600, fontSize: 30 }}>Basket</h1>
       <div>
+        <BasketHeader>
+          <MdOutlineShoppingBasket size={30} /> {cart.length} items
+        </BasketHeader>
         <Checkout>
-          <BasketHeader>
-            <MdOutlineShoppingBasket size={30} /> {cart.length} items
-          </BasketHeader>
           {cart.map((item) => (
             <BasketProduct key={item.id}>
               <img
