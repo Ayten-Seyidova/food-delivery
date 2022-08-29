@@ -1,9 +1,8 @@
 import styled from "styled-components";
 
 export const ProfileContainerDiv = styled.div`
-  justify-content: center;
-  display: grid;
-  grid-template-columns: 38% 62%;
+  display: flex;
+  flex-direction: column;
   padding: 4%;
   color: black;
   background-color: #f3f4f6;

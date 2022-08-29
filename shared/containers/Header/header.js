@@ -113,7 +113,7 @@ const flags = {
 export const Header = () => {
   const { t, i18n } = useTranslation();
   const [user, setUser] = React.useState();
-  const router = useRouter();
+  const { push, pathname } = useRouter();
 
   const dispatch = useDispatch();
   const userName = useSelector((state) => state.loginSlice.user.userName);
@@ -146,27 +146,87 @@ export const Header = () => {
           <Nav className="me-auto menu-section">
             <li className="nav-link">
               <Link href="/">
-                <a>{t("home")}</a>
+                <a
+                  style={
+                    pathname == "/"
+                      ? {
+                          color: "#D63626",
+                          fontWeight: 700,
+                          fontSize: 18,
+                        }
+                      : {}
+                  }
+                >
+                  {t("home")}
+                </a>
               </Link>
             </li>
-            <li className="nav-link">
+            <li className="nav-link active">
               <Link href="/restaurants">
-                <a>{t("restaurants")}</a>
+                <a
+                  style={
+                    pathname == "/restaurants"
+                      ? {
+                          color: "#D63626",
+                          fontWeight: 700,
+                          fontSize: 18,
+                        }
+                      : {}
+                  }
+                >
+                  {t("restaurants")}
+                </a>
               </Link>
             </li>
             <li className="nav-link">
               <Link href="/about">
-                <a>{t("about us")}</a>
+                <a
+                  style={
+                    pathname == "/about"
+                      ? {
+                          color: "#D63626",
+                          fontWeight: 700,
+                          fontSize: 18,
+                        }
+                      : {}
+                  }
+                >
+                  {t("about us")}
+                </a>
               </Link>
             </li>
             <li className="nav-link">
               <Link href="/how-it-works">
-                <a>{t("how it works")}</a>
+                <a
+                  style={
+                    pathname == "/how-it-works"
+                      ? {
+                          color: "#D63626",
+                          fontWeight: 700,
+                          fontSize: 18,
+                        }
+                      : {}
+                  }
+                >
+                  {t("how it works")}
+                </a>
               </Link>
             </li>
             <li className="nav-link">
               <Link href="/faqs">
-                <a>{t("faqs")}</a>
+                <a
+                  style={
+                    pathname == "/faqs"
+                      ? {
+                          color: "#D63626",
+                          fontWeight: 700,
+                          fontSize: 18,
+                        }
+                      : {}
+                  }
+                >
+                  {t("faqs")}
+                </a>
               </Link>
             </li>
           </Nav>
@@ -222,16 +282,13 @@ export const Header = () => {
                 height: "auto",
               }}
               onMouseOver={({ target }) => (target.style.cursor = "pointer")}
-              onClick={() => router.push("/user?page=basket")}
+              onClick={() => push("/user?page=basket")}
             />
             {user ? (
               <div className="avatar">
                 <Stack direction="row" spacing={2}>
                   <BasicMenu />
-                  <h5
-                    className="user-name"
-                    onClick={() => router.push("/user")}
-                  >
+                  <h5 className="user-name" onClick={() => push("/user")}>
                     {user}
                   </h5>
                 </Stack>

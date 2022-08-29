@@ -1,4 +1,6 @@
 import {
+  BurgerBackground,
+  BurgerCard,
   BurgerImg,
   Buttons,
   ExploreButton,
@@ -17,6 +19,7 @@ import {
   HomeContainerMain,
   HomeFeatures,
   HomeHeader,
+  HomeHeaderMobile,
   HomeMenu,
   LeftHeader,
   LeftHeaderP,
@@ -26,6 +29,7 @@ import {
   MenuImg,
   MenuImgBack,
   MenuItem,
+  MenuItemReverse,
   MenuLeft,
   MenuRight,
   OrderButton,
@@ -41,6 +45,9 @@ import fries from "../../../public/image/components/fries.svg";
 import burger from "../../../public/image/components/burger.svg";
 import margarita from "../../../public/image/components/margarita.svg";
 import burgerOpen from "../../../public/image/components/burger-open.svg";
+import pizzaCard from "../../../public/image/components/pizza-card.svg";
+import friesCard from "../../../public/image/components/fries-card.svg";
+import burgerCard from "../../../public/image/components/cheeseburger-card.svg";
 import { useEffect } from "react";
 import { restaurantAPI } from "../../../pages/api/restaurant";
 import { useDispatch } from "react-redux";
@@ -50,8 +57,10 @@ import { setCategory } from "../../../store/slice/categorySlice";
 import { productsAPI } from "../../../pages/api/products";
 import { setProduct } from "../../../store/slice/productSlice";
 import { useRouter } from "next/router";
+import { useTranslation } from "react-i18next";
 
 const HomeContainerPage = () => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const { push } = useRouter();
 
@@ -71,6 +80,41 @@ const HomeContainerPage = () => {
 
   return (
     <HomeContainerMain>
+      <HomeHeaderMobile>
+        <BurgerImg
+          style={{
+            width: 271,
+            height: 231,
+            position: "relative",
+            marginTop: 0,
+          }}
+          src="https://raw.githubusercontent.com/rahimlisarkhan/food-delivery/main/public/image/sendvic.png"
+        />
+        <LeftHeaderP
+          style={{
+            width: "85%",
+            fontSize: 20,
+            textAlign: "center",
+            marginTop: 20,
+          }}
+        >
+          Our Food site makes it easy to find local food
+        </LeftHeaderP>
+        <Buttons style={{ marginTop: 20, flexDirection: "column", gap: 10 }}>
+          <RegisterButton
+            onClick={() => push("/login")}
+            style={{ fontSize: 16, width: 168, height: 40 }}
+          >
+            {t("register")}
+          </RegisterButton>
+          <OrderButton
+            onClick={() => push("/restaurants")}
+            style={{ fontSize: 16, width: 168, height: 40 }}
+          >
+            {t("order_now")}
+          </OrderButton>
+        </Buttons>
+      </HomeHeaderMobile>
       <HomeHeader>
         <LeftHeader>
           <LeftHeaderP>
@@ -82,19 +126,59 @@ const HomeContainerPage = () => {
           </LeftHeaderP2>
           <Buttons>
             <RegisterButton onClick={() => push("/login")}>
-              Register
+              {t("register")}
             </RegisterButton>
             <OrderButton onClick={() => push("/restaurants")}>
-              Order Now
+              {t("order_now")}
             </OrderButton>
           </Buttons>
         </LeftHeader>
         <RightHeader>
+          <BurgerBackground />
           <BurgerImg src="https://raw.githubusercontent.com/rahimlisarkhan/food-delivery/main/public/image/sendvic.png" />
+          <BurgerCard>
+            <img src={pizzaCard} />
+            <p
+              style={{
+                width: 90,
+                fontWeight: 500,
+                fontSize: 16,
+                color: "#4f4f4f",
+              }}
+            >
+              Pizza Hut Yummy ...
+            </p>
+          </BurgerCard>
+          <BurgerCard style={{ top: "50%", right: "70%" }}>
+            <img src={friesCard} />
+            <p
+              style={{
+                width: 120,
+                fontWeight: 500,
+                fontSize: 16,
+                color: "#4f4f4f",
+              }}
+            >
+              French Fries Yummy ...
+            </p>
+          </BurgerCard>
+          <BurgerCard style={{ top: "90%", right: "7%" }}>
+            <img src={burgerCard} />
+            <p
+              style={{
+                width: 90,
+                fontWeight: 500,
+                fontSize: 16,
+                color: "#4f4f4f",
+              }}
+            >
+              CheeseBurger Yummy ...
+            </p>
+          </BurgerCard>
         </RightHeader>
       </HomeHeader>
       <HomeFeatures>
-        <FeaturesHeader>Features</FeaturesHeader>
+        <FeaturesHeader>{t("features")}</FeaturesHeader>
         <FeaturesDescription>
           Lorem ipsum is placeholder text commonly used in the graphic, print,
           and publishing industries for previewing layouts and visual mockups.
@@ -136,13 +220,13 @@ const HomeContainerPage = () => {
             </MenuContent>
           </MenuLeft>
           <MenuRight>
-            <MenuImgBack></MenuImgBack>
+            <MenuImgBack />
             <MenuImg src={kfc} />
           </MenuRight>
         </MenuItem>
-        <MenuItem>
+        <MenuItemReverse>
           <MenuRight>
-            <MenuImgBack></MenuImgBack>
+            <MenuImgBack style={{ transform: "rotate(-22.82deg)" }} />
             <MenuImg src={pizza} />
           </MenuRight>
           <MenuLeft>
@@ -155,7 +239,7 @@ const HomeContainerPage = () => {
               and visual mockups.
             </MenuContent>
           </MenuLeft>
-        </MenuItem>
+        </MenuItemReverse>
         <MenuItem>
           <MenuLeft>
             <MenuHeader>Do You Like French Fries? Mmm...</MenuHeader>
@@ -168,13 +252,13 @@ const HomeContainerPage = () => {
             </MenuContent>
           </MenuLeft>
           <MenuRight>
-            <MenuImgBack></MenuImgBack>
+            <MenuImgBack />
             <MenuImg src={fries} />
           </MenuRight>
         </MenuItem>
       </HomeMenu>
-      <HomeFeatures>
-        <FeaturesHeader>Our Popular Update New Foods</FeaturesHeader>
+      <HomeFeatures style={{ marginTop: 70 }}>
+        <FeaturesHeader>{t("our popular")}</FeaturesHeader>
         <FeaturesDescription>
           Lorem ipsum is placeholder text commonly used in the graphic, print,
           and publishing industries for previewing layouts and visual mockups.
@@ -205,12 +289,14 @@ const HomeContainerPage = () => {
       </HomeFeatures>
       <ExploreNowContainer>
         <ExploreNow>
-          <ExploreImg src={pizza} />
+          <ExploreImg src={pizza} alt="pizza" />
           <ExploreContent>
             <ExploreHeader>Discover Restaurants Near From you</ExploreHeader>
-            <ExploreButton>Explore now</ExploreButton>
+            <ExploreButton onClick={() => push("/restaurants")}>
+              Explore now
+            </ExploreButton>
           </ExploreContent>
-          <ExploreImg src={burgerOpen} />
+          <ExploreImg src={burgerOpen} alt="burger" />
         </ExploreNow>
       </ExploreNowContainer>
     </HomeContainerMain>

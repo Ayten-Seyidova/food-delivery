@@ -34,9 +34,7 @@ export const basketSlice = createSlice({
       }
     },
     removeItem: (state, action) => {
-      const removeItem = state.cart.filter(
-        (item) => item.id !== action.payload
-      );
+      const removeItem = state.cart.filter((item) => item.id !== action.payload);
       state.cart = removeItem;
     },
     checkout: (state, action) => {

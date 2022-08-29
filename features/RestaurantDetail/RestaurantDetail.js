@@ -44,8 +44,6 @@ function RestaurantDetail() {
   const dispatch = useDispatch();
 
   const myRestaurant = restaurant.find((item) => item.slug == query.name);
-  console.log(restaurant);
-  console.log(myRestaurant);
   const products = product.filter(
     (item) => item.restaurant == myRestaurant.name
   );
