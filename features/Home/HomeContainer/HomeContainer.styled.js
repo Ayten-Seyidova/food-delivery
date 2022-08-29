@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 export const HomeContainerMain = styled.div`
   width: 100%;
@@ -7,12 +7,27 @@ export const HomeContainerMain = styled.div`
 export const HomeHeader = styled.div`
   justify-content: center;
   background-color: #f3f4f6;
-  align-self: start;
   align-items: center;
   display: flex;
   flex-direction: row;
   width: 100%;
   border-radius: 4px;
+  @media only screen and (max-width: 768px) {
+    display: none;
+  }
+`;
+
+export const HomeHeaderMobile = styled.div`
+  justify-content: center;
+  background-color: #f3f4f6;
+  align-items: center;
+  flex-direction: column;
+  height: 475px;
+  width: 100%;
+  display: none;
+  @media only screen and (max-width: 768px) {
+    display: flex;
+  }
 `;
 
 export const LeftHeader = styled.div`
@@ -27,16 +42,19 @@ export const LeftHeader = styled.div`
 export const RightHeader = styled.div`
   justify-content: center;
   align-items: center;
-  display: grid;
-  width: 50%;
+  display: flex;
+  border-radius: 50px;
   height: 100%;
+  width: 50%;
+  position: relative;
 `;
 
 export const LeftHeaderP = styled.p`
   color: #181617;
   font-weight: 900;
   font-size: 60px;
-  margin:0px
+  margin: 0px;
+  width: 653px;
 `;
 
 export const LeftHeaderP2 = styled.p`
@@ -44,7 +62,8 @@ export const LeftHeaderP2 = styled.p`
   font-size: 22px;
   letter-spacing: 0.03em;
   color: #828282;
-  margin:30px 0px
+  margin: 30px 0px;
+  width: 510px;
 `;
 
 export const Buttons = styled.div`
@@ -80,10 +99,43 @@ export const OrderButton = styled.button`
   color: #828282;
 `;
 
-export const BurgerImg = styled.img`
-  width: 90%;
-  background-color: black;
+export const BurgerBackground = styled.div`
+  width: 550px;
+  height: 450px;
   border-radius: 50px;
+  background-color: black;
+`;
+
+export const BurgerImg = styled.img`
+  width: 100%;
+  border-radius: 50px;
+  position: absolute;
+`;
+
+const scale = keyframes`
+  from {
+    transform: scale(.95);
+  }
+  to {
+    transform: scale(1.1);
+  }
+`;
+
+export const BurgerCard = styled.div`
+  width: 278px;
+  height: 91px;
+  background: #ffffff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+  position: absolute;
+  top: -5%;
+  right: 4%;
+  justify-content: center;
+  align-items: center;
+  display: grid;
+  grid-template-columns: 40% 60%;
+  padding: 1%;
+  animation: ${scale} 2.5s linear infinite alternate;
 `;
 
 export const HomeFeatures = styled.div`
@@ -91,8 +143,12 @@ export const HomeFeatures = styled.div`
   align-items: center;
   display: flex;
   flex-direction: column;
-  margin-top: 100px;
-  margin-bottom: 100px;
+  margin-top: 70px;
+  margin-bottom: 70px;
+  @media only screen and (max-width: 768px) {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
 `;
 
 export const FeaturesHeader = styled.h1`
@@ -101,6 +157,11 @@ export const FeaturesHeader = styled.h1`
   color: #181617;
   width: 394px;
   text-align: center;
+  @media only screen and (max-width: 768px) {
+    font-size: 25px;
+    font-weight: 700;
+    width: 90%;
+  }
 `;
 export const FeaturesDescription = styled.p`
   justify-content: center;
@@ -110,14 +171,21 @@ export const FeaturesDescription = styled.p`
   color: #828282;
   width: 780px;
   height: 105px;
+  @media only screen and (max-width: 768px) {
+    font-size: 16px;
+    line-height: 28px;
+    width: 90%;
+  }
 `;
 export const FeaturesCards = styled.div`
   justify-content: space-evenly;
   align-items: center;
   display: flex;
   flex-direction: row;
-  /* background-color: red; */
   width: 100%;
+  @media only screen and (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 export const FeaturesCard = styled.div`
@@ -129,6 +197,10 @@ export const FeaturesCard = styled.div`
   align-items: center;
   display: flex;
   flex-direction: column;
+  @media only screen and (max-width: 768px) {
+    height: 310px;
+    letter-spacing: 0.03em;
+  }
 `;
 
 export const FeaturesCardImg = styled.img`
@@ -141,6 +213,9 @@ export const FeaturesCardHeader = styled.h1`
   font-weight: 700;
   font-size: 30px;
   color: #4f4f4f;
+  @media only screen and (max-width: 768px) {
+    font-size: 20px;
+  }
 `;
 
 export const FeaturesCardDescription = styled.p`
@@ -150,6 +225,9 @@ export const FeaturesCardDescription = styled.p`
   font-size: 18px;
   color: #828282;
   text-align: center;
+  @media only screen and (max-width: 768px) {
+    font-size: 16px;
+  }
 `;
 
 export const HomeMenu = styled.div`
@@ -167,11 +245,35 @@ export const MenuItem = styled.div`
   flex-direction: row;
   margin: 30px 0px;
   width: 100%;
+  @media only screen and (max-width: 768px) {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+`;
+
+export const MenuItemReverse = styled.div`
+  justify-content: space-evenly;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  margin: 30px 0px;
+  width: 100%;
+  @media only screen and (max-width: 768px) {
+    flex-direction: column-reverse;
+    justify-content: center;
+    text-align: center;
+  }
 `;
 
 export const MenuLeft = styled.div`
   display: flex;
   flex-direction: column;
+  @media only screen and (max-width: 768px) {
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
 `;
 
 export const MenuRight = styled.div`
@@ -187,6 +289,14 @@ export const MenuHeader = styled.h1`
   font-weight: 900;
   font-size: 50px;
   color: #181617;
+  @media only screen and (max-width: 768px) {
+    font-size: 25px;
+    text-align: center;
+    width: 90%;
+    font-weight: 700;
+    height: 10%;
+    margin-bottom: 20px;
+  }
 `;
 
 export const MenuContent = styled.p`
@@ -195,6 +305,15 @@ export const MenuContent = styled.p`
   font-weight: 400;
   font-size: 22px;
   color: #828282;
+  @media only screen and (max-width: 768px) {
+    text-align: center;
+    width: 90%;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 28px;
+    height: 10%;
+    margin-bottom: 20px;
+  }
 `;
 
 export const MenuImgBack = styled.div`
@@ -203,12 +322,20 @@ export const MenuImgBack = styled.div`
   background: #d63626;
   border-radius: 50px;
   transform: rotate(22.82deg);
+  @media only screen and (max-width: 768px) {
+    width: 187.27px;
+    height: 251.72px;
+  }
 `;
 
 export const MenuImg = styled.img`
   position: absolute;
   width: 636.81px;
   height: 441.15px;
+  @media only screen and (max-width: 768px) {
+    width: 282px;
+    height: 200.18px;
+  }
 `;
 
 export const ExploreNowContainer = styled.div`
@@ -217,10 +344,14 @@ export const ExploreNowContainer = styled.div`
   display: flex;
   flex-direction: row;
   margin-bottom: -80px;
+  @media screen and (max-width: 768px) {
+    margin-bottom: -30px;
+    margin-top: 50px;
+  }
 `;
 
 export const ExploreNow = styled.div`
-  width: 1066px;
+  width: 90%;
   height: 372px;
   background: #272727;
   border-radius: 50px;
@@ -229,12 +360,20 @@ export const ExploreNow = styled.div`
   flex-direction: row;
   color: #ffffff;
   justify-content: space-evenly;
+  padding: 0px 20px;
+  @media only screen and (max-width: 768px) {
+    width: 90%;
+    height: 256px;
+  }
 `;
 
 export const ExploreImg = styled.img`
   width: 200px;
   height: 200px;
   transform: rotate(-0.64deg);
+  @media only screen and (max-width: 768px) {
+    display: none;
+  }
 `;
 
 export const ExploreContent = styled.div`
@@ -244,6 +383,10 @@ export const ExploreContent = styled.div`
   flex-direction: column;
   justify-content: space-evenly;
   height: 100%;
+  width: 90%;
+  @media screen and (max-width: 768px) {
+    padding: 30px 0px;
+  }
 `;
 
 export const ExploreHeader = styled.h1`
@@ -252,6 +395,11 @@ export const ExploreHeader = styled.h1`
   font-weight: 500;
   font-size: 50px;
   letter-spacing: 0.03em;
+  @media only screen and (max-width: 768px) {
+    font-weight: 500;
+    font-size: 26px;
+    width: 90%;
+  }
 `;
 
 export const ExploreButton = styled.button`
@@ -264,4 +412,8 @@ export const ExploreButton = styled.button`
   font-weight: 500;
   font-size: 20px;
   letter-spacing: 0.03em;
+  @media screen and (max-width: 768px) {
+    width: 195px;
+    height: 92px;
+  }
 `;

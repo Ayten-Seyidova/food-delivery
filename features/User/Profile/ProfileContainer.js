@@ -2,7 +2,8 @@ import * as React from "react";
 import { ProfileContainerDiv } from "./ProfileContainer.styled";
 
 import { Formik } from "formik";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { getUserData, setLogin } from "../../../store/slice/loginSlice";
 
 const Basic = (props) => (
   <div>
@@ -19,11 +20,10 @@ const Basic = (props) => (
         }
         return errors;
       }}
-      onSubmit={(values, { setSubmitting }) => {
-        //   setTimeout(() => {
-        //     alert(JSON.stringify(values, null, 2));
-        //     setSubmitting(false);
-        //   }, 400);
+      onSubmit={(values) => {
+        setTimeout(() => {
+          props.dispatch(getUserData(values));
+        }, 400);
       }}
     >
       {({
@@ -33,58 +33,65 @@ const Basic = (props) => (
         handleChange,
         handleBlur,
         handleSubmit,
-        isSubmitting,
         /* and other goodies */
       }) => (
         <form onSubmit={handleSubmit}>
-          <label htmlFor="fullName">Full Name</label>
-          <input
-            type="fullName"
-            name="fullName"
-            onChange={handleChange}
-            onBlur={handleBlur}
-            value={values.fullName}
-          />
+          <span>
+            <label htmlFor="fullName">Full Name</label>
+            <input
+              type="fullName"
+              name="fullName"
+              onChange={handleChange}
+              onBlur={handleBlur}
+              value={values.fullName}
+            />
+          </span>
           {errors.fullName && touched.fullName && errors.fullName}
-          <label htmlFor="email">Email</label>
-          <input
-            type="email"
-            name="email"
-            onChange={handleChange}
-            onBlur={handleBlur}
-            value={values.email}
-          />
+          <span>
+            <label htmlFor="email">Email</label>
+            <input
+              type="email"
+              name="email"
+              onChange={handleChange}
+              onBlur={handleBlur}
+              value={values.email}
+            />
+          </span>
           {errors.email && touched.email && errors.email}
-          <label htmlFor="userName">Username</label>
-          <input
-            type="userName"
-            name="userName"
-            onChange={handleChange}
-            onBlur={handleBlur}
-            value={values.userName}
-          />
+          <span>
+            <label htmlFor="userName">Username</label>
+            <input
+              type="userName"
+              name="userName"
+              onChange={handleChange}
+              onBlur={handleBlur}
+              value={values.userName}
+            />
+          </span>
           {errors.userName && touched.userName && errors.userName}
-          <label htmlFor="contact">Contact Number</label>
-          <input
-            type="contact"
-            name="contact"
-            onChange={handleChange}
-            onBlur={handleBlur}
-            value={values.contact}
-          />
+          <span>
+            <label htmlFor="contact">Contact Number</label>
+            <input
+              type="contact"
+              name="contact"
+              onChange={handleChange}
+              onBlur={handleBlur}
+              value={values.contact}
+            />
+          </span>
           {errors.contact && touched.contact && errors.contact}
-          <label htmlFor="address">Address</label>
-          <input
-            type="address"
-            name="address"
-            onChange={handleChange}
-            onBlur={handleBlur}
-            value={values.address}
-          />
+          <span>
+            <label htmlFor="address">Address</label>
+            <input
+              type="address"
+              name="address"
+              onChange={handleChange}
+              onBlur={handleBlur}
+              value={values.address}
+            />
+          </span>
           {errors.address && touched.address && errors.address}
-          <button type="submit">
-            Save
-          </button>
+          <button type="submit">Save</button>
         </form>
       )}
     </Formik>
@@ -93,11 +100,12 @@ const Basic = (props) => (
 
 const ProfileContainer = () => {
   const user = useSelector((state) => state.loginSlice.user);
+  const dispatch = useDispatch();
+
   return (
     <ProfileContainerDiv>
       <h1>Profile</h1>
-      <div></div>
-      <Basic user={user} />
+      <Basic user={user} dispatch={dispatch} />
     </ProfileContainerDiv>
   );
 };
