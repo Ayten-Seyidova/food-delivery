@@ -16,6 +16,9 @@ export const RestLeft = styled.div`
   align-items: center;
   display: flex;
   flex-direction: column;
+  @media only screen and (max-width: 768px) {
+    display: none;
+  }
 `;
 
 export const Category = styled.button`
@@ -54,13 +57,17 @@ export const CategoryName = styled.div`
 `;
 
 export const RestRight = styled.div`
-  width: 80%;
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
+  padding: 5px 15px;
   justify-content: center;
-  padding: 15px;
   overflow-y: auto;
-  height: 700px;
+  max-height: 700px;
+  @media screen and (max-width: 768px) {
+    padding: 0px;
+    gap: 5%;
+  }
 `;
 
 export const Card = styled.div`
@@ -69,11 +76,17 @@ export const Card = styled.div`
   height: 345.27px;
   background-color: #ffffff;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  margin: 12px;
+  margin: 0px 0px 25px 0px;
   justify-content: center;
   display: grid;
   grid-template-rows: 50% 40% 10%;
   padding: 1%;
+  @media screen and (max-width: 768px) {
+    grid-template-rows: 80px 80px 40px;
+    height: 212px;
+    width: 131px;
+    margin: 5px 0px;
+  }
 `;
 
 export const CardImg = styled.img`
@@ -83,20 +96,32 @@ export const CardImg = styled.img`
 `;
 
 export const CardMiddle = styled.div`
-  /* justify-content: center; */
   padding-top: 9%;
   width: 100%;
   align-items: center;
-  /* background-color: red; */
   display: flex;
   flex-direction: column;
+  @media screen and (max-width: 768px) {
+    text-align: center;
+    padding: 3% 0%;
+    gap: 0px;
+  }
 `;
 
-export const CardHeader = styled.h1`
+export const CardHeader = styled.p`
   font-weight: 700;
   font-size: 22px;
   color: #4f4f4f;
   width: 100%;
+  height: 40px;
+  @media screen and (max-width: 768px) {
+    font-size: 16px;
+    line-height: 20px;
+    min-height: 40px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+  }
 `;
 export const CardDescription = styled.p`
   font-weight: 400;
@@ -106,6 +131,11 @@ export const CardDescription = styled.p`
   align-items: center;
   display: flex;
   flex-direction: row;
+  @media screen and (max-width: 768px) {
+    font-size: 10px;
+    min-height: 40px;
+    margin-top: -17px;
+  }
 `;
 
 export const CardBottom = styled.div`
@@ -113,6 +143,12 @@ export const CardBottom = styled.div`
   display: flex;
   flex-direction: row;
   width: 100%;
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 0px;
+  }
 `;
 
 export const CardDelivery = styled.h1`
@@ -124,6 +160,9 @@ export const CardDelivery = styled.h1`
   align-items: center;
   display: flex;
   flex-direction: row;
+  @media screen and (max-width: 768px) {
+    font-size: 12px;
+  }
 `;
 
 export const CardTime = styled.div`
@@ -138,6 +177,10 @@ export const CardTime = styled.div`
   align-items: center;
   display: flex;
   flex-direction: column;
+  @media screen and (max-width: 768px) {
+    font-size: 10px;
+    width: 90%;
+  }
 `;
 
 export const CardNewtag = styled.div`
@@ -151,4 +194,25 @@ export const CardNewtag = styled.div`
   align-items: center;
   display: flex;
   flex-direction: column;
+`;
+
+export const Filters = styled.div`
+  width: 283px;
+  height: 35px;
+  background: #ffffff;
+  box-shadow: 0px 3px 8px -2px rgba(0, 0, 0, 0.2);
+  border: none;
+  display: none;
+  font-weight: 500;
+  font-size: 16px;
+  color: #4f4f4f;
+  text-align: center;
+  flex-direction: row;
+  display: none;
+  @media screen and (max-width: 768px) {
+    display: block;
+  }
+  ${Filters}:hover& {
+    cursor: pointer;
+  }
 `;

@@ -46,5 +46,11 @@
     "name": "Kebab",
     "img": "https://image.shutterstock.com/image-vector/roasted-on-fire-bbq-food-600w-629590673.jpg",
     "tag": "kebab"
+  },
+  {
+    "id": 9,
+    "name": "Coffee",
+    "img": "https://image.shutterstock.com/image-vector/roasted-on-fire-bbq-food-600w-629590673.jpg",
+    "tag": "coffee"
   }
 ]
