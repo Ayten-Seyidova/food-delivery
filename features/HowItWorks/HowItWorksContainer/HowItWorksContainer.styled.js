@@ -22,7 +22,11 @@ export const HIWContent = styled.p`
   font-size: 20px;
   color: #828282;
   text-align: center;
+  @media screen and (max-width: 768px) {
+    width: 90%;
+  }
 `;
+
 export const Multimedia = styled.div`
   position: relative;
   justify-content: center;
@@ -39,10 +43,17 @@ export const Background = styled.div`
   box-shadow: 0px 3px 8px -2px rgba(0, 0, 0, 0.2);
   border-radius: 100px;
   transform: rotate(-170.57deg);
+  @media screen and (max-width: 768px) {
+    transform: rotate(0deg);
+    height: 474px;
+    width: 280px;
+  }
 `;
 
 export const Front = styled.img`
   position: absolute;
   width: 620px;
-  /* height: 90%; */
+  @media screen and (max-width: 768px){
+    width: 300px;
+  }
 `;
