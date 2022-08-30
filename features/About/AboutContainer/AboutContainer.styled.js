@@ -6,19 +6,33 @@ export const AboutUs = styled.div`
   display: flex;
   flex-direction: row;
   padding: 5%;
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 `;
+
 export const AboutLeft = styled.div`
   display: flex;
   flex-direction: column;
   width: 50%;
   align-items: flex-start;
   height: 100%;
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    text-align: center;
+  }
 `;
 
 export const Header = styled.h1`
   font-weight: 600;
   font-size: 45px;
   color: #000000;
+  @media screen and (max-width: 768px) {
+    text-align: center;
+    width: 100%;
+  }
 `;
 
 export const Content = styled.p`
@@ -27,8 +41,9 @@ export const Content = styled.p`
   color: #828282;
   letter-spacing: 1.15px;
   margin-top: 5%;
-  line-height: 35px
+  line-height: 35px;
 `;
+
 export const AboutRight = styled.div`
   width: 50%;
   min-height: 750px;
@@ -36,6 +51,38 @@ export const AboutRight = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+`;
+
+export const AboutRightMobile = styled.div`
+  width: 90%;
+  min-height: 581.07px;
+  background: #ffb64f;
+  box-shadow: 0px 3px 8px -2px rgba(0, 0, 0, 0.2);
+  border-radius: 100px;
+  justify-content: space-evenly;
+  align-items: center;
+  display: none;
+  flex-direction: column;
+  margin-top: 40px;
+  @media screen and (max-width: 768px) {
+    display: flex;
+  }
+`;
+
+export const CardContainerMobile = styled.div`
+  height: 144px;
+  width: 90%;
+  border-radius: 20px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  @media screen and (max-width: 768px) {
+    display: flex;
+  }
 `;
 
 export const Background = styled.div`
@@ -66,8 +113,8 @@ export const Card = styled.div`
 
 export const CardFood = styled.div`
   position: absolute;
-  width: 120px;
-  height: 118px;
+  width: 100px;
+  height: 100px;
   background-color: white;
   box-shadow: 0px 3px 8px -2px rgba(0, 0, 0, 0.2);
   border-radius: 50%;
@@ -77,6 +124,10 @@ export const CardFood = styled.div`
   align-items: center;
   display: flex;
   flex-direction: row;
+  @media screen and (max-width: 768px) {
+    margin-top: -150px;
+    margin-left: 150px;
+  }
 `;
 
 export const CardDetail = styled.div`
