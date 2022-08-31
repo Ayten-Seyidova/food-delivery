@@ -35,7 +35,7 @@ const Basic = (props) => (
         handleSubmit,
         /* and other goodies */
       }) => (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="myForm">
           <span>
             <label htmlFor="fullName">Full Name</label>
             <input
@@ -104,7 +104,9 @@ const ProfileContainer = () => {
 
   return (
     <ProfileContainerDiv>
-      <h1>Profile</h1>
+      <h1 style={{ fontWeight: 600, fontSize: 30, color: "#4F4F4F" }}>
+        Profile
+      </h1>
       <Basic user={user} dispatch={dispatch} />
     </ProfileContainerDiv>
   );

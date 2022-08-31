@@ -1,7 +1,6 @@
 import {
   Bottom,
   Description,
-  FbLogo,
   FooterLi,
   FooterMain,
   FooterUl,

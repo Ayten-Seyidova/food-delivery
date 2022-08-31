@@ -78,6 +78,51 @@ a {
   color: var(--page-color);
 }
 
-.MuiPaper-root {
-  border-radius: 20px 20px 0px 0px;
+.myForm {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  height: 365px;
+  margin-top: 25px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.myForm > * {
+  width: 444px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 10%;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  color: #4f4f4f;
+}
+
+.myForm > * > input {
+  border: none;
+  width: 444px;
+  height: 53px;
+  background: #ffffff;
+  border-radius: 4px;
+  color: red;
+  font-weight: 400;
+  font-size: 20px;
+  color: #828282;
+  padding: 20px;
+}
+
+.myForm > button {
+  width: 444px;
+  height: 53px;
+  background: #6fcf97;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 18px;
+  color: #ffffff;
+  border: none;
+  justify-content: center;
+  align-items: center;
+  margin-top: 25px;
 }

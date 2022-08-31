@@ -62,7 +62,9 @@ const OrdersContainer = () => {
   const orders = useSelector((state) => state.basketSlice.orders);
   return (
     <OrdersDiv>
-      <h1>Your Orders</h1>
+      <h1 style={{ fontWeight: 600, fontSize: 30, color: "#4F4F4F" }}>
+        Your Orders
+      </h1>
       <BasicTable orders={orders} />
     </OrdersDiv>
   );

@@ -27,6 +27,11 @@ export const Bottom = styled.div`
   height: 10%;
   font-size: 14px;
   font-weight: 400;
+  @media screen and (max-width: 768px) {
+    width: 80%;
+    text-align: center;
+    padding-bottom: 70px;
+  }
 `;
 
 export const UpperLeft = styled.div`
@@ -35,6 +40,11 @@ export const UpperLeft = styled.div`
   justify-content: center;
   align-items: center;
   display: grid;
+  @media screen and (max-width: 768px) {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 export const UpperRight = styled.div`
@@ -43,6 +53,9 @@ export const UpperRight = styled.div`
   justify-content: center;
   align-items: center;
   display: flex;
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
 `;
 
 export const Logo = styled.img`
@@ -57,6 +70,11 @@ export const LeftContent = styled.div`
   flex-direction: column;
   justify-content: center;
   height: 100%;
+  @media screen and (max-width: 768px) {
+    align-items: center;
+    justify-content: space-between;
+    padding: 70px 50px;
+  }
 `;
 
 export const Description = styled.p`

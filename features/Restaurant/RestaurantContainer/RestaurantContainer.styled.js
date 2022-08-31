@@ -212,7 +212,4 @@ export const Filters = styled.div`
   @media screen and (max-width: 768px) {
     display: block;
   }
-  ${Filters}:hover& {
-    cursor: pointer;
-  }
 `;

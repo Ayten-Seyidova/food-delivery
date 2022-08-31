@@ -229,9 +229,26 @@ const HomeContainerPage = () => {
             <MenuImgBack style={{ transform: "rotate(-22.82deg)" }} />
             <MenuImg src={pizza} />
           </MenuRight>
-          <MenuLeft>
-            <MenuHeader>Yummy Always Papa John’s Pizza.Agree?</MenuHeader>
-            <MenuContent>
+          <MenuLeft
+            style={{
+              width: "50%",
+              paddingLeft: "10px",
+            }}
+          >
+            <MenuHeader
+              style={{
+                width: "100%",
+                paddingLeft: "80px",
+              }}
+            >
+              Yummy Always Papa John’s Pizza.Agree?
+            </MenuHeader>
+            <MenuContent
+              style={{
+                width: "100%",
+                paddingLeft: "80px",
+              }}
+            >
               Lorem ipsum is placeholder text commonly used in the graphic,
               print, and publishing industries for previewing layouts and visual
               mockups.Lorem ipsum is placeholder text commonly used in the
