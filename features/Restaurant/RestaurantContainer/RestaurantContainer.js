@@ -50,7 +50,7 @@ const RestaurantContainerPage = () => {
           })}
         </RestLeft>
         <RestRight>
-          <SwipeableTemporaryDrawer
+          <SwipeableTemporaryDrawer className='hey'
             filterRest={filterRest}
             style={{ display: "none"}}
           />

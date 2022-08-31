@@ -19,7 +19,7 @@ export const HomeHeader = styled.div`
 
 export const HomeHeaderMobile = styled.div`
   justify-content: center;
-  background-color: #f3f4f6;
+  background-color: #f2f2f2;
   align-items: center;
   flex-direction: column;
   height: 475px;
@@ -269,6 +269,7 @@ export const MenuItemReverse = styled.div`
 export const MenuLeft = styled.div`
   display: flex;
   flex-direction: column;
+  width: 40%;
   @media only screen and (max-width: 768px) {
     justify-content: center;
     align-items: center;
@@ -281,6 +282,7 @@ export const MenuRight = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  width: 40%;
 `;
 
 export const MenuHeader = styled.h1`
@@ -301,6 +303,7 @@ export const MenuHeader = styled.h1`
 
 export const MenuContent = styled.p`
   width: 499px;
+  /* width: 50%; */
   height: 210px;
   font-weight: 400;
   font-size: 22px;

@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const UserContainer = styled.div`
   margin: 1% 0px;
   display: grid;
-  grid-template-columns: 30% 70%;
+  grid-template-columns: 25% 75%;
   gap: 1%;
   width: 100%;
   height: 515px;

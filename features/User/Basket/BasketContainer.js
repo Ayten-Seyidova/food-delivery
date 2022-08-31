@@ -18,7 +18,9 @@ const BasketContainer = () => {
   const cart = useSelector((state) => state.basketSlice.cart);
   return (
     <BasketDiv>
-      <h1 style={{ fontWeight: 600, fontSize: 30 }}>Basket</h1>
+      <h1 style={{ fontWeight: 600, fontSize: 30, color: "#4F4F4F" }}>
+        Basket
+      </h1>
       <div>
         <BasketHeader>
           <MdOutlineShoppingBasket size={30} /> {cart.length} items
@@ -72,7 +74,7 @@ const BasketContainer = () => {
               height: 43,
               borderRadius: 100,
               backgroundColor: "#fff",
-              color: "red",
+              // color: "red",
               justifyContent: "center",
               alignItems: "center",
               display: "flex",
