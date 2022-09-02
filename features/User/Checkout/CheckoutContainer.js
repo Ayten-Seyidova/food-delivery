@@ -1,6 +1,6 @@
 import { Formik } from "formik";
-import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { ordersCreateAPI } from "../../../api/orders";
 import { checkout, completedOrder } from "../../../store/slice/basketSlice";
 import {
   CheckoutContainerDiv,
@@ -25,7 +25,9 @@ const Basic = (props) => {
         //   return errors;
         // }}
         onSubmit={(values) => {
-          props.dispatch(checkout(values));
+          ordersCreateAPI(values)
+            .then((res) => props.dispatch(checkout(values)))
+            .catch(() => console.log("error"));
         }}
       >
         {({
@@ -35,8 +37,6 @@ const Basic = (props) => {
           handleChange,
           handleBlur,
           handleSubmit,
-          // isSubmitting,
-          /* and other goodies */
         }) => (
           <form onSubmit={handleSubmit}>
             <label htmlFor="address">Delivery Address</label>

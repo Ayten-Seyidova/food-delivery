@@ -12,10 +12,35 @@ import {
   Counter,
   PlusMinusButton,
 } from "../../RestaurantDetail/RestaurantDetail.styled";
+import { basketCreateAPI, basketDeleteAPI } from "../../../api/basket";
+import {
+  decrementQuantity,
+  incrementQuantity,
+  removeItem,
+} from "../../../store/slice/basketSlice";
 
 const BasketContainer = () => {
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.basketSlice.cart);
+
+  const increment = (id) => {
+    basketCreateAPI(id)
+      .then((res) => dispatch(incrementQuantity(id)))
+      .catch(() => console.log("error"));
+  };
+
+  const decrement = (id) => {
+    basketCreateAPI(id)
+      .then((res) => dispatch(decrementQuantity(id)))
+      .catch(() => console.log("error"));
+  };
+
+  const deleteProduct = (id) => {
+    basketDeleteAPI(id)
+      .then((res) => dispatch(removeItem(id)))
+      .catch(() => console.log("error"));
+  };
+
   return (
     <BasketDiv>
       <h1 style={{ fontWeight: 600, fontSize: 30, color: "#4F4F4F" }}>
@@ -40,22 +65,18 @@ const BasketContainer = () => {
                 </p>
               </BasketProductContent>
               <Counter>
-                <PlusMinusButton
-                  onClick={() => dispatch(incrementQuantity(item.id))}
-                >
+                <PlusMinusButton onClick={() => increment(item.id)}>
                   +
                 </PlusMinusButton>
                 <p style={{ margin: 0, padding: 0 }}>{item.quantity}</p>
-                <PlusMinusButton
-                  onClick={() => dispatch(decrementQuantity(item.id))}
-                >
+                <PlusMinusButton onClick={() => decrement(item.id)}>
                   -
                 </PlusMinusButton>
               </Counter>
               <MdOutlineDeleteSweep
                 size={27}
                 color="#BDBDBD"
-                onClick={() => dispatch(removeItem(item.id))}
+                onClick={() => deleteProduct(item.id)}
                 style={{
                   top: 0,
                   bottom: 100,

@@ -10,19 +10,21 @@ export const RestDetail = styled.div`
 
 export const Cover = styled.div`
   width: 80%;
-  height: 537px;
   display: flex;
   flex-direction: column;
+  margin: 5% 0%;
 `;
 
 export const CoverDetail = styled.div`
   justify-content: space-between;
   display: grid;
   width: 100%;
-  grid-template-columns: 70% 30%;
-  height: 89px;
+  grid-template-columns: 65% 35%;
   align-items: center;
-  /* background-color: aliceblue; */
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    display: flex;
+  }
 `;
 
 export const CoverDetailLeft = styled.div`
@@ -32,16 +34,23 @@ export const CoverDetailLeft = styled.div`
   justify-content: space-between;
   align-items: flex-start;
   margin: 13px 0px;
+  @media screen and (max-width: 768px) {
+    border-bottom: 2px solid #f3f4f6;
+  }
 `;
 
 export const CoverDetailRight = styled.div`
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   display: grid;
   flex-direction: column;
   width: 100%;
   height: 100%;
   grid-template-columns: 60% 20% 20%;
+  @media screen and (max-width: 768px) {
+    border-bottom: 2px solid #f3f4f6;
+    margin-bottom: 20px;
+  }
 `;
 
 export const Cuisine = styled.div`
@@ -49,6 +58,21 @@ export const Cuisine = styled.div`
   display: flex;
   flex-direction: column;
   height: 100%;
+  @media screen and (max-width: 768px) {
+    height: 90%;
+  }
+`;
+
+export const Buttons = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 5%;
+  width: 120px;
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    width: 80px;
+    margin-bottom: 10px;
+  }
 `;
 
 export const Down = styled.div`
@@ -56,7 +80,10 @@ export const Down = styled.div`
   grid-template-columns: 65% 35%;
   width: 100%;
   gap: 2%;
-  /* justify-content: space-between; */
+  @media screen and (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 export const Products = styled.div`
@@ -64,6 +91,21 @@ export const Products = styled.div`
   flex-direction: column;
   background-color: #f3f4f6;
   width: 100%;
+`;
+
+export const ProductImg = styled.img`
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+`;
+
+export const CheckoutContainer = styled.div`
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
 `;
 
 export const Checkout = styled.div`
@@ -74,10 +116,11 @@ export const Checkout = styled.div`
   width: 95%;
   height: 400px;
   overflow-y: auto;
+  border-radius: 4px;
 `;
 
 export const CheckoutButton = styled.div`
-  width: 100%;
+  width: 32%;
   background-color: #d63626;
   border-radius: 100px;
   height: 47px;
@@ -88,16 +131,16 @@ export const CheckoutButton = styled.div`
   flex-direction: row;
   padding: 0px 2px 0px 25px;
   font-weight: 500;
+  position: absolute;
 `;
 
 export const ButtonDiv = styled.div`
-  width: 72px;
+  min-width: 80px;
   height: 51px;
   border: 1px solid #d63626;
   justify-content: center;
   align-items: center;
   display: flex;
-  flex-direction: row;
   border-radius: 5px;
   color: #ffffff;
   font-size: 14px;
@@ -136,14 +179,19 @@ export const Product = styled.div`
   grid-template-columns: 8% 60% 15% 9%;
   border-top: 1px solid #e0e0e0;
   gap: 2%;
+  padding: 0px 30px;
+  @media screen and (max-width: 768px) {
+    grid-template-columns: 70% 20% 10%;
+  }
 `;
 
 export const ProductContent = styled.div`
   justify-content: space-between;
-  /* align-items: center; */
   display: flex;
   flex-direction: column;
 `;
+
+export const From = styled.div``;
 
 export const BasketHeader = styled.p`
   align-items: center;

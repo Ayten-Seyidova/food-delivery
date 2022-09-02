@@ -1,5 +1,5 @@
-import { Axios, AxiosMockCreate } from "../../../mocks";
-import productsData from "../../../mocks/products/products.json";
+import { Axios, AxiosMockCreate } from "../../mocks";
+import productsData from "../../mocks/products/products.json";
 
 AxiosMockCreate.onGet("/products").reply(() => {
   return new Promise((resolve, reject) => {

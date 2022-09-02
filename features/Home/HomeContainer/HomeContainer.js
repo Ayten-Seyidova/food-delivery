@@ -25,12 +25,15 @@ import {
   LeftHeaderP,
   LeftHeaderP2,
   MenuContent,
+  MenuContentReverse,
   MenuHeader,
+  MenuHeaderReverse,
   MenuImg,
   MenuImgBack,
   MenuItem,
   MenuItemReverse,
   MenuLeft,
+  MenuLeftReverse,
   MenuRight,
   OrderButton,
   RegisterButton,
@@ -48,13 +51,13 @@ import burgerOpen from "../../../public/image/components/burger-open.svg";
 import pizzaCard from "../../../public/image/components/pizza-card.svg";
 import friesCard from "../../../public/image/components/fries-card.svg";
 import burgerCard from "../../../public/image/components/cheeseburger-card.svg";
+import {restaurantAPI} from '../../../api/restaurant'
 import { useEffect } from "react";
-import { restaurantAPI } from "../../../pages/api/restaurant";
 import { useDispatch } from "react-redux";
 import { setRestaurant } from "../../../store/slice/restaurantSlice";
-import { categoryAPI } from "../../../pages/api/category";
 import { setCategory } from "../../../store/slice/categorySlice";
-import { productsAPI } from "../../../pages/api/products";
+import { productsAPI } from "../../../api/products";
+import { categoryAPI } from "../../../api/category";
 import { setProduct } from "../../../store/slice/productSlice";
 import { useRouter } from "next/router";
 import { useTranslation } from "react-i18next";
@@ -229,33 +232,16 @@ const HomeContainerPage = () => {
             <MenuImgBack style={{ transform: "rotate(-22.82deg)" }} />
             <MenuImg src={pizza} />
           </MenuRight>
-          <MenuLeft
-            style={{
-              width: "50%",
-              paddingLeft: "10px",
-            }}
-          >
-            <MenuHeader
-              style={{
-                width: "100%",
-                paddingLeft: "80px",
-              }}
-            >
-              Yummy Always Papa John’s Pizza.Agree?
-            </MenuHeader>
-            <MenuContent
-              style={{
-                width: "100%",
-                paddingLeft: "80px",
-              }}
-            >
+          <MenuLeftReverse>
+            <MenuHeaderReverse>Yummy Always Papa John’s Pizza.Agree?</MenuHeaderReverse>
+            <MenuContentReverse>
               Lorem ipsum is placeholder text commonly used in the graphic,
               print, and publishing industries for previewing layouts and visual
               mockups.Lorem ipsum is placeholder text commonly used in the
               graphic, print, and publishing industries for previewing layouts
               and visual mockups.
-            </MenuContent>
-          </MenuLeft>
+            </MenuContentReverse>
+          </MenuLeftReverse>
         </MenuItemReverse>
         <MenuItem>
           <MenuLeft>
