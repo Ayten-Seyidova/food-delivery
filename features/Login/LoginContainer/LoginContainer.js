@@ -16,7 +16,7 @@ import { ToastContainer, toast } from "react-toastify";
 import { useFormik } from "formik";
 import { useSelector, useDispatch } from "react-redux";
 import { getUserData, setLogin } from "../../../store/slice/loginSlice";
-import { loginAPI, loginCreateAPI } from "../../../pages/api/login";
+import { loginAPI, loginCreateAPI } from "../../../api/login";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;

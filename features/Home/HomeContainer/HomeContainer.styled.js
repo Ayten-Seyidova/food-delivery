@@ -277,12 +277,18 @@ export const MenuLeft = styled.div`
   }
 `;
 
+export const MenuLeftReverse = styled.div`
+  width: 100%;
+  padding-left: 10px;
+  flex-direction: column;
+`;
+
 export const MenuRight = styled.div`
   align-items: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 40%;
+  width: 70%;
 `;
 
 export const MenuHeader = styled.h1`
@@ -294,16 +300,31 @@ export const MenuHeader = styled.h1`
   @media only screen and (max-width: 768px) {
     font-size: 25px;
     text-align: center;
-    width: 90%;
+    width: 100%;
     font-weight: 700;
     height: 10%;
     margin-bottom: 20px;
   }
 `;
 
+export const MenuHeaderReverse = styled.div`
+  width: 100%;
+  height: 155px;
+  font-weight: 900;
+  font-size: 50px;
+  color: #181617;
+  padding-left: 80px;
+  margin-bottom: 30px;
+  @media screen and (max-width: 768px) {
+    padding-left: 0px;
+    height: 14%;
+    margin-bottom: 20px;
+    font-size: 25px;
+  }
+`;
+
 export const MenuContent = styled.p`
   width: 499px;
-  /* width: 50%; */
   height: 210px;
   font-weight: 400;
   font-size: 22px;
@@ -316,6 +337,22 @@ export const MenuContent = styled.p`
     line-height: 28px;
     height: 10%;
     margin-bottom: 20px;
+  }
+`;
+
+export const MenuContentReverse = styled.div`
+  width: 100%;
+  height: 210px;
+  font-weight: 400;
+  font-size: 22px;
+  color: #828282;
+  padding-left: 80px;
+  @media screen and (max-width: 768px) {
+    padding-left: 0px;
+    width: 95%;
+    height: 10%;
+    margin-bottom: 50px;
+    font-size: 16px;
   }
 `;
 

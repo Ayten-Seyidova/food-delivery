@@ -9,7 +9,7 @@ import az from "../../../public/Image/flag/az.svg";
 import en from "../../../public/Image/flag/en.svg";
 import fr from "../../../public/Image/flag/fr.svg";
 import { useDispatch, useSelector } from "react-redux";
-import { loginAPI } from "../../../pages/api/login";
+import { loginAPI } from "../../../api/login";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { BsPersonCircle } from "react-icons/bs";
 import { getUserData } from "../../../store/slice/loginSlice";

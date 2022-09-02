@@ -4,6 +4,7 @@ import { ProfileContainerDiv } from "./ProfileContainer.styled";
 import { Formik } from "formik";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserData, setLogin } from "../../../store/slice/loginSlice";
+import { loginCreateAPI } from "../../../api/login";
 
 const Basic = (props) => (
   <div>
@@ -22,7 +23,9 @@ const Basic = (props) => (
       }}
       onSubmit={(values) => {
         setTimeout(() => {
-          props.dispatch(getUserData(values));
+          loginCreateAPI(values)
+            .then(() => props.dispatch(getUserData(values)))
+            .catch(() => console.log("error"));
         }, 400);
       }}
     >
@@ -33,7 +36,6 @@ const Basic = (props) => (
         handleChange,
         handleBlur,
         handleSubmit,
-        /* and other goodies */
       }) => (
         <form onSubmit={handleSubmit} className="myForm">
           <span>
