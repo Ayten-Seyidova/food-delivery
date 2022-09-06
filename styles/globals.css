@@ -126,3 +126,13 @@ a {
   align-items: center;
   margin-top: 25px;
 }
+
+@media screen and (max-width: 768px) {
+  .myForm > * > input {
+    width: 100%;
+    background-color: #f3f4f6;
+  }
+  .myForm {
+    height: 616px;
+  }
+}

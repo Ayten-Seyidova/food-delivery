@@ -1,7 +1,6 @@
 import { Pagination, Stack } from "@mui/material";
 import { useRouter } from "next/router";
 import { useState } from "react";
-import { useSelector } from "react-redux";
 import {
   Card,
   CardBottom,
@@ -21,15 +20,15 @@ import {
 } from "./RestaurantContainer.styled";
 import SwipeableTemporaryDrawer from "./Drawer";
 
-const RestaurantContainerPage = () => {
+const RestaurantContainerPage = ({ data }) => {
   const page = 0;
-  const restaurant = useSelector((state) => state.restaurantSlice.data);
-  const [restaurants, setRestaurants] = useState(restaurant);
-  const category = useSelector((state) => state.categorySlice.data);
+  const [restaurants, setRestaurants] = useState(data.restaurants);
   const { push } = useRouter();
 
   const filterRest = (tag) => {
-    restaurants = restaurant.filter((item) => item.category == tag);
+    restaurants = tag
+      ? restaurants.filter((item) => item.category == tag)
+      : data.restaurants;
     setRestaurants(restaurants);
   };
 
@@ -37,7 +36,11 @@ const RestaurantContainerPage = () => {
     <>
       <RestMain>
         <RestLeft>
-          {category.map((category) => {
+          <Category onClick={() => filterRest()}>
+            {/* <CategoryImg src={} alt={} /> */}
+            <CategoryName>All</CategoryName>
+          </Category>
+          {data.categories.map((category) => {
             return (
               <Category
                 key={category.id}
@@ -50,9 +53,11 @@ const RestaurantContainerPage = () => {
           })}
         </RestLeft>
         <RestRight>
-          <SwipeableTemporaryDrawer className='hey'
+          <SwipeableTemporaryDrawer
+            className="hey"
             filterRest={filterRest}
-            style={{ display: "none"}}
+            categories={data.categories}
+            style={{ display: "none" }}
           />
           <div
             style={{
@@ -94,9 +99,5 @@ const RestaurantContainerPage = () => {
     </>
   );
 };
-
-export async function getServerSideProps() {
-  return { props: { data } };
-}
 
 export default RestaurantContainerPage;

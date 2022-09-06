@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   BasketHeader,
   BasketProduct,
@@ -38,21 +38,46 @@ import {
 } from "../../store/slice/basketSlice";
 import { GrBasket } from "react-icons/gr";
 import { basketCreateAPI, basketDeleteAPI } from "../../api/basket";
+import { restaurantAPI } from "../../api/restaurant";
+import { productsAPI } from "../../api/products";
 
 function RestaurantDetail() {
   let { push, back } = useRouter();
   const router = useRouter();
   const query = Object.values(router)[2];
+  const [myRestaurant, setMyRestaurant] = useState();
+  const [products, setProducts] = useState();
 
-  const product = useSelector((state) => state.productSlice.data);
   const cart = useSelector((state) => state.basketSlice.cart);
-  const restaurant = useSelector((state) => state.restaurantSlice.data);
   const dispatch = useDispatch();
 
-  const myRestaurant = restaurant.find((item) => item.slug == query.name);
-  const products = product.filter(
-    (item) => item.restaurant == myRestaurant.name
-  );
+  useEffect(() => {
+    productsAPI.then((res) => {
+      setProducts(
+        res.data.products.filter(
+          (item) => item.restaurant == myRestaurant?.name
+        )
+      );
+    });
+  }, []);
+
+  const getData = () => {
+    restaurantAPI.then((res) => {
+      setMyRestaurant(
+        res.data.restaurant.find((item) => item.slug == query.name)
+      );
+    });
+
+    productsAPI.then((res) => {
+      setProducts(
+        res.data.products.filter((item) => item.restaurant == myRestaurant.name)
+      );
+    });
+  };
+
+  // const products = product.filter(
+  //   (item) => item.restaurant == myRestaurant.name
+  // );
 
   const addProduct = (item) => {
     basketCreateAPI(item)
@@ -85,7 +110,14 @@ function RestaurantDetail() {
           <img
             src={myRestaurant?.img}
             alt={myRestaurant?.name}
-            style={{ width: "100%", height: "100%", objectFit: "contain" }}
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "contain",
+              maxHeight: 400,
+              minHeight: "none",
+              boreder: "1px solid black",
+            }}
           />
         </Cover>
         <CoverDetail>
@@ -114,7 +146,7 @@ function RestaurantDetail() {
         <Down>
           <Products>
             <Name style={{ fontSize: 25, padding: 30 }}>Products</Name>
-            {products.map((item) => (
+            {products?.map((item) => (
               <Product key={item.id}>
                 <ProductImg src={item.img} alt={item.name} />
                 <ProductContent>
@@ -129,14 +161,26 @@ function RestaurantDetail() {
                   style={{
                     justifyContent: "center",
                     alignItems: "center",
-                    diplay: "flex",
+                    textAlign: "center",
+                    display: "flex",
                     flexDirection: "row",
-                    width: 130,
+                    width: 120,
                     background: "green",
                   }}
                 >
-                  <From>From</From>
-                  <strong>${item.price}</strong>
+                  <div
+                    style={{
+                      justifyContent: "center",
+                      alignItems: "center",
+                      display: "flex",
+                      flexDirection: "row",
+                    }}
+                  >
+                    <p style={{ background: "yellow" }}>From</p> &nbsp;
+                    <p style={{ fontWeight: "bold", background: "blue" }}>
+                      ${item.price}
+                    </p>
+                  </div>
                 </div>
                 <Button
                   variant="contained"
@@ -244,5 +288,9 @@ function RestaurantDetail() {
     </div>
   );
 }
+
+export const getServerSideProps = (context) => {
+  return { props: { context } };
+};
 
 export default RestaurantDetail;

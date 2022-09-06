@@ -1,7 +1,11 @@
 import { useTranslation } from "react-i18next";
 import React from "react";
 import {
+  DropdownBtn,
+  DropdownItem,
+  DropdownMenu,
   ErrorText,
+  HeaderDiv,
   LogDiv,
   LoginDiv,
   LoginImage,
@@ -17,6 +21,27 @@ import { useFormik } from "formik";
 import { useSelector, useDispatch } from "react-redux";
 import { getUserData, setLogin } from "../../../store/slice/loginSlice";
 import { loginAPI, loginCreateAPI } from "../../../api/login";
+import Image from "next/image";
+
+import az from "../../../public/Image/flag/az.svg";
+import en from "../../../public/Image/flag/en.svg";
+import fr from "../../../public/Image/flag/fr.svg";
+
+const myLoader = ({ src, width, quality }) => {
+  return `https://example.com/${src}?w=${width}&q=${quality || 100}`;
+};
+
+const lngs = {
+  az: { nativeName: "Az" },
+  en: { nativeName: "En" },
+  fr: { nativeName: "Fr" },
+};
+
+const flags = {
+  az,
+  en,
+  fr,
+};
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -43,7 +68,7 @@ function a11yProps(index) {
 
 const LoginContainerPage = () => {
   const router = useRouter();
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [value, setValue] = React.useState(0);
 
   function handleChange(event, newValue) {
@@ -63,7 +88,6 @@ const LoginContainerPage = () => {
   };
 
   const state = useSelector((state) => state);
-
   const dispatch = useDispatch();
 
   React.useEffect(() => {
@@ -193,192 +217,245 @@ const LoginContainerPage = () => {
   });
 
   return (
-    <LoginDiv>
-      <LoginImage>
-        {
-          {
-            login: (
-              <LoginImg
-                src={require(`../../../public/Image/components/login.svg`)}
-                alt="login"
-              />
-            ),
-            register: (
-              <LoginImg
-                src={require(`../../../public/Image/components/register.svg`)}
-                alt="login"
-              />
-            ),
-          }[image]
-        }
-      </LoginImage>
-      <LogDiv>
-        <div>
-          <AppBar className="app-bar" position="static" color="default">
-            <Tabs
-              value={value}
-              onChange={handleChange}
-              indicatorColor="primary"
-              textColor="primary"
-              variant="scrollable"
-              scrollButtons="auto"
-              aria-label="scrollable auto tabs example"
+    <>
+      <header>
+        <HeaderDiv>
+          <Image
+            src={require("../../../public/Image/logo/login-logo.svg")}
+            alt="logo"
+            onClick={() => push("/")}
+            width={100}
+            height={100}
+          />
+          <div className="dropdown">
+            <DropdownBtn
+              className="btn dropdown-toggle"
+              type="button"
+              data-bs-toggle="dropdown"
+              id="dropdownMenuButton1"
+              aria-expanded="false"
             >
-              <Tab
-                label={t("login")}
-                onClick={() => handleImage("login")}
-                {...a11yProps(0)}
+              <Image
+                loader={myLoader}
+                src={flags[i18n.resolvedLanguage]}
+                alt="lang"
+                width={41}
+                height={41}
               />
-              <Tab
-                label={t("register")}
-                onClick={() => handleImage("register")}
-                {...a11yProps(1)}
-              />
-            </Tabs>
-          </AppBar>
-          <TabPanel className="tab-pabel" value={value} index={0}>
-            <form onSubmit={formik.handleSubmit}>
-              <div className="form-item">
-                <label>{t("username")}</label>
-                <input
-                  placeholder="rahimlisarkhan"
-                  id="userName"
-                  name="userName"
-                  onChange={formik.handleChange}
-                  value={formik.values.userName}
+            </DropdownBtn>
+            <DropdownMenu
+              className="dropdown-menu"
+              aria-labelledby="dropdownMenuButton1"
+            >
+              {Object.keys(lngs).map((lng) => (
+                <DropdownItem key={lng}>
+                  <div
+                    className="dropdown-item"
+                    type="submit"
+                    onClick={() => i18n.changeLanguage(lng)}
+                    disabled={i18n.resolvedLanguage === lng}
+                  >
+                    <Image
+                      loader={myLoader}
+                      src={flags[lng]}
+                      alt={flags[lng]}
+                      width={41}
+                      height={41}
+                    />
+                  </div>
+                </DropdownItem>
+              ))}
+            </DropdownMenu>
+          </div>
+        </HeaderDiv>
+      </header>
+      <LoginDiv>
+        <LoginImage>
+          {
+            {
+              login: (
+                <LoginImg
+                  src={require(`../../../public/Image/components/login.svg`)}
+                  alt="login"
                 />
-                {formik.errors.userName && (
-                  <ErrorText>{formik.errors.userName}</ErrorText>
-                )}
-              </div>
-              <div>
-                <label>{t("password")}</label>
-                <div className="position-relative">
+              ),
+              register: (
+                <LoginImg
+                  src={require(`../../../public/Image/components/register.svg`)}
+                  alt="login"
+                />
+              ),
+            }[image]
+          }
+        </LoginImage>
+        <LogDiv>
+          <div>
+            <AppBar className="app-bar" position="static" color="default">
+              <Tabs
+                value={value}
+                onChange={handleChange}
+                indicatorColor="primary"
+                textColor="primary"
+                variant="scrollable"
+                scrollButtons="auto"
+                aria-label="scrollable auto tabs example"
+              >
+                <Tab
+                  label={t("login")}
+                  onClick={() => handleImage("login")}
+                  {...a11yProps(0)}
+                />
+                <Tab
+                  label={t("register")}
+                  onClick={() => handleImage("register")}
+                  {...a11yProps(1)}
+                />
+              </Tabs>
+            </AppBar>
+            <TabPanel className="tab-pabel" value={value} index={0}>
+              <form onSubmit={formik.handleSubmit}>
+                <div className="form-item">
+                  <label>{t("username")}</label>
                   <input
-                    placeholder="********"
-                    className="mb-0"
-                    type={icon}
-                    id="password"
-                    name="password"
+                    placeholder="rahimlisarkhan"
+                    id="userName"
+                    name="userName"
                     onChange={formik.handleChange}
-                    value={formik.values.password}
+                    value={formik.values.userName}
                   />
-                  {
-                    {
-                      text: (
-                        <div
-                          className="eye-icon"
-                          onClick={() => handleIcon("password")}
-                        >
-                          <VisibilityIcon />
-                        </div>
-                      ),
-                      password: (
-                        <div
-                          className="eye-icon"
-                          onClick={() => handleIcon("text")}
-                        >
-                          <VisibilityOffIcon />
-                        </div>
-                      ),
-                    }[icon]
-                  }
+                  {formik.errors.userName && (
+                    <ErrorText>{formik.errors.userName}</ErrorText>
+                  )}
                 </div>
-                {formik.errors.password && (
-                  <ErrorText>{formik.errors.password}</ErrorText>
-                )}
-              </div>
-              <div>
-                <button type="submit">{t("log in")}</button>
-              </div>
-            </form>
-          </TabPanel>
-          <TabPanel className="tab-pabel" value={value} index={1}>
-            <form onSubmit={formikRegister.handleSubmit}>
-              <div className="form-item">
-                <label>{t("fullName")}</label>
-                <input
-                  placeholder="Sarkhan Rahimli"
-                  id="fullName"
-                  name="fullName"
-                  onChange={formikRegister.handleChange}
-                  value={formikRegister.values.fullName}
-                />
-                {formikRegister.errors.fullName && (
-                  <ErrorText>{formikRegister.errors.fullName}</ErrorText>
-                )}
-              </div>
-              <div className="form-item">
-                <label>{t("username")}</label>
-                <input
-                  placeholder="rahimlisarkhan"
-                  name="userName"
-                  onChange={formikRegister.handleChange}
-                  value={formikRegister.values.userName}
-                />
-                {formikRegister.errors.userName && (
-                  <ErrorText>{formikRegister.errors.userName}</ErrorText>
-                )}
-              </div>
-              <div className="form-item">
-                <label>{t("email")}</label>
-                <input
-                  placeholder="rahimlisarkhan@gmail.com"
-                  type="email"
-                  id="email"
-                  name="email"
-                  onChange={formikRegister.handleChange}
-                  value={formikRegister.values.email}
-                />
-                {formikRegister.errors.email && (
-                  <ErrorText>{formikRegister.errors.email}</ErrorText>
-                )}
-              </div>
-              <div>
-                <label>{t("password")}</label>
-                <div className="position-relative">
+                <div>
+                  <label>{t("password")}</label>
+                  <div className="position-relative">
+                    <input
+                      placeholder="********"
+                      className="mb-0"
+                      type={icon}
+                      id="password"
+                      name="password"
+                      onChange={formik.handleChange}
+                      value={formik.values.password}
+                    />
+                    {
+                      {
+                        text: (
+                          <div
+                            className="eye-icon"
+                            onClick={() => handleIcon("password")}
+                          >
+                            <VisibilityIcon />
+                          </div>
+                        ),
+                        password: (
+                          <div
+                            className="eye-icon"
+                            onClick={() => handleIcon("text")}
+                          >
+                            <VisibilityOffIcon />
+                          </div>
+                        ),
+                      }[icon]
+                    }
+                  </div>
+                  {formik.errors.password && (
+                    <ErrorText>{formik.errors.password}</ErrorText>
+                  )}
+                </div>
+                <div>
+                  <button type="submit">{t("log in")}</button>
+                </div>
+              </form>
+            </TabPanel>
+            <TabPanel className="tab-pabel" value={value} index={1}>
+              <form onSubmit={formikRegister.handleSubmit}>
+                <div className="form-item">
+                  <label>{t("fullName")}</label>
                   <input
-                    placeholder="********"
-                    className="mb-0"
-                    type={icon}
-                    name="password"
+                    placeholder="Sarkhan Rahimli"
+                    id="fullName"
+                    name="fullName"
                     onChange={formikRegister.handleChange}
-                    value={formikRegister.values.password}
+                    value={formikRegister.values.fullName}
                   />
-                  {
-                    {
-                      text: (
-                        <div
-                          className="eye-icon"
-                          onClick={() => handleIcon("password")}
-                        >
-                          <VisibilityIcon />
-                        </div>
-                      ),
-                      password: (
-                        <div
-                          className="eye-icon"
-                          onClick={() => handleIcon("text")}
-                        >
-                          <VisibilityOffIcon />
-                        </div>
-                      ),
-                    }[icon]
-                  }
+                  {formikRegister.errors.fullName && (
+                    <ErrorText>{formikRegister.errors.fullName}</ErrorText>
+                  )}
                 </div>
-                {formikRegister.errors.password && (
-                  <ErrorText>{formikRegister.errors.password}</ErrorText>
-                )}
-              </div>
-              <div>
-                <button type="submit">{t("register")}</button>
-              </div>
-            </form>
-          </TabPanel>
-        </div>
-      </LogDiv>
-      <ToastContainer />
-    </LoginDiv>
+                <div className="form-item">
+                  <label>{t("username")}</label>
+                  <input
+                    placeholder="rahimlisarkhan"
+                    name="userName"
+                    onChange={formikRegister.handleChange}
+                    value={formikRegister.values.userName}
+                  />
+                  {formikRegister.errors.userName && (
+                    <ErrorText>{formikRegister.errors.userName}</ErrorText>
+                  )}
+                </div>
+                <div className="form-item">
+                  <label>{t("email")}</label>
+                  <input
+                    placeholder="rahimlisarkhan@gmail.com"
+                    type="email"
+                    id="email"
+                    name="email"
+                    onChange={formikRegister.handleChange}
+                    value={formikRegister.values.email}
+                  />
+                  {formikRegister.errors.email && (
+                    <ErrorText>{formikRegister.errors.email}</ErrorText>
+                  )}
+                </div>
+                <div>
+                  <label>{t("password")}</label>
+                  <div className="position-relative">
+                    <input
+                      placeholder="********"
+                      className="mb-0"
+                      type={icon}
+                      name="password"
+                      onChange={formikRegister.handleChange}
+                      value={formikRegister.values.password}
+                    />
+                    {
+                      {
+                        text: (
+                          <div
+                            className="eye-icon"
+                            onClick={() => handleIcon("password")}
+                          >
+                            <VisibilityIcon />
+                          </div>
+                        ),
+                        password: (
+                          <div
+                            className="eye-icon"
+                            onClick={() => handleIcon("text")}
+                          >
+                            <VisibilityOffIcon />
+                          </div>
+                        ),
+                      }[icon]
+                    }
+                  </div>
+                  {formikRegister.errors.password && (
+                    <ErrorText>{formikRegister.errors.password}</ErrorText>
+                  )}
+                </div>
+                <div>
+                  <button type="submit">{t("register")}</button>
+                </div>
+              </form>
+            </TabPanel>
+          </div>
+        </LogDiv>
+        <ToastContainer />
+      </LoginDiv>
+    </>
   );
 };
 

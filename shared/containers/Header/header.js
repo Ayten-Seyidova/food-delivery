@@ -22,6 +22,14 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import { t } from "i18next";
 import { Menu, MenuItem } from "@mui/material";
+import styled from "styled-components";
+
+export const LogoContainer = styled.div`
+  display: none;
+  @media screen and (max-width: 768px) {
+    display: flex;
+  }
+`;
 
 const menu = [
   { id: 0, href: "/", t: "home", mandatory: true },
@@ -107,7 +115,7 @@ export default function TemporaryDrawer({ user }) {
   );
 
   return (
-    <div>
+    <LogoContainer>
       {["left"].map((anchor) => (
         <React.Fragment key={anchor}>
           <Button onClick={toggleDrawer(anchor, true)}>
@@ -122,7 +130,7 @@ export default function TemporaryDrawer({ user }) {
           </Drawer>
         </React.Fragment>
       ))}
-    </div>
+    </LogoContainer>
   );
 }
 
@@ -246,6 +254,7 @@ export const Header = () => {
     { id: 2, href: "/about", t: "about us" },
     { id: 3, href: "/how-it-works", t: "how it works" },
     { id: 4, href: "/faqs", t: "faqs" },
+    { id: 5, href: "/logout", t: "logout" },
   ];
 
   return (
@@ -284,7 +293,6 @@ export const Header = () => {
               </li>
             ))}
           </Nav>
-
           <div className="language-section">
             <div className="dropdown">
               <button

@@ -1,4 +1,5 @@
 import Head from "next/head";
+import { useRouter } from "next/router";
 import HowContainerPage from "../../features/HowItWorks/HowItWorksContainer/HowItWorksContainer";
 import Layout from "../../shared/components/Layout";
 

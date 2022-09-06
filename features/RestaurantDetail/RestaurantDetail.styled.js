@@ -9,10 +9,10 @@ export const RestDetail = styled.div`
 `;
 
 export const Cover = styled.div`
-  width: 80%;
+  width: 90%;
   display: flex;
   flex-direction: column;
-  margin: 5% 0%;
+  margin: 2% 0%;
 `;
 
 export const CoverDetail = styled.div`
@@ -45,8 +45,8 @@ export const CoverDetailRight = styled.div`
   display: grid;
   flex-direction: column;
   width: 100%;
-  height: 100%;
   grid-template-columns: 60% 20% 20%;
+  background-color: aquamarine;
   @media screen and (max-width: 768px) {
     border-bottom: 2px solid #f3f4f6;
     margin-bottom: 20px;
@@ -58,6 +58,7 @@ export const Cuisine = styled.div`
   display: flex;
   flex-direction: column;
   height: 100%;
+  background-color: red;
   @media screen and (max-width: 768px) {
     height: 90%;
   }
@@ -68,6 +69,7 @@ export const Buttons = styled.div`
   flex-direction: row;
   gap: 5%;
   width: 120px;
+  background-color: blue;
   @media screen and (max-width: 768px) {
     flex-direction: column;
     width: 80px;
@@ -191,7 +193,12 @@ export const ProductContent = styled.div`
   flex-direction: column;
 `;
 
-export const From = styled.div``;
+export const From = styled.p`
+  background-color: red;
+  @media screen and (max-width: 768px){
+    display: none;
+  }
+`;
 
 export const BasketHeader = styled.p`
   align-items: center;
