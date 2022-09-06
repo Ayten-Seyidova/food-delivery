@@ -7,8 +7,10 @@
 .logo-container {
   justify-content: center;
   align-items: center;
-  display: flex-start;
+  display: flex;
   flex-direction: row;
+  width: 150px;
+  height: 100px;
 }
 
 .vector {
@@ -71,7 +73,9 @@
   align-items: center;
   display: flex;
   flex-direction: row;
-  width: 250px;
+  min-width: 170px;
+  max-width: 250px;
+  /* background-color: red; */
 }
 
 .language-section .dropdown-toggle {

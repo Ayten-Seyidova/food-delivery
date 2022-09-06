@@ -21,6 +21,7 @@ export const loginSlice = createSlice({
       state.data = [];
       state.isLogin = false;
       state.user = {};
+      localStorage.setItem("isLogin", false);
     },
   },
 });

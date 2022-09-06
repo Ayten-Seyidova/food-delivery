@@ -6,6 +6,9 @@ export const ProfileContainerDiv = styled.div`
   padding: 4%;
   color: black;
   background-color: #f3f4f6;
+  @media screen and (max-width: 768px) {
+    background-color: white;
+  }
 `;
 
 export const Header = styled.h1`

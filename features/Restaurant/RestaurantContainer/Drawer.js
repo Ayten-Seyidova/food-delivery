@@ -11,8 +11,7 @@ import { BsFilter } from "react-icons/bs";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import { useSelector } from "react-redux";
 
-export default function SwipeableTemporaryDrawer({ filterRest }) {
-  const category = useSelector((state) => state.categorySlice.data);
+export default function SwipeableTemporaryDrawer({ filterRest, categories }) {
   const [state, setState] = React.useState({
     bottom: false,
   });
@@ -40,7 +39,7 @@ export default function SwipeableTemporaryDrawer({ filterRest }) {
         <div style={{ textAlign: "center", color: "#bdbdbd" }}>
           <AiOutlineCloseCircle size={40} />
         </div>
-        {category.map((text) => (
+        {categories.map((text) => (
           <ListItem key={text.name} disablePadding>
             <ListItemButton>
               <ListItemText

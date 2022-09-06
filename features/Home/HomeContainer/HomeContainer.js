@@ -51,35 +51,12 @@ import burgerOpen from "../../../public/image/components/burger-open.svg";
 import pizzaCard from "../../../public/image/components/pizza-card.svg";
 import friesCard from "../../../public/image/components/fries-card.svg";
 import burgerCard from "../../../public/image/components/cheeseburger-card.svg";
-import {restaurantAPI} from '../../../api/restaurant'
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { setRestaurant } from "../../../store/slice/restaurantSlice";
-import { setCategory } from "../../../store/slice/categorySlice";
-import { productsAPI } from "../../../api/products";
-import { categoryAPI } from "../../../api/category";
-import { setProduct } from "../../../store/slice/productSlice";
 import { useRouter } from "next/router";
 import { useTranslation } from "react-i18next";
 
 const HomeContainerPage = () => {
   const { t } = useTranslation();
-  const dispatch = useDispatch();
   const { push } = useRouter();
-
-  useEffect(() => {
-    getData();
-  }, []);
-
-  const getData = () => {
-    restaurantAPI.then((res) => {
-      dispatch(setRestaurant(res.data.restaurant));
-    });
-    categoryAPI.then((res) => {
-      dispatch(setCategory(res.data.category));
-    });
-    productsAPI.then((res) => dispatch(setProduct(res.data.products)));
-  };
 
   return (
     <HomeContainerMain>
@@ -233,7 +210,9 @@ const HomeContainerPage = () => {
             <MenuImg src={pizza} />
           </MenuRight>
           <MenuLeftReverse>
-            <MenuHeaderReverse>Yummy Always Papa John’s Pizza.Agree?</MenuHeaderReverse>
+            <MenuHeaderReverse>
+              Yummy Always Papa John’s Pizza.Agree?
+            </MenuHeaderReverse>
             <MenuContentReverse>
               Lorem ipsum is placeholder text commonly used in the graphic,
               print, and publishing industries for previewing layouts and visual

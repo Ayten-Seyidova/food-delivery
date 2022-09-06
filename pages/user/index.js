@@ -7,11 +7,13 @@ import ErrorPage from "../404/index";
 import ProfileContainer from "../../features/User/Profile/ProfileContainer";
 import OrdersContainer from "../../features/User/Orders/OrdersContainer";
 import CheckoutContainer from "../../features/User/Checkout/CheckoutContainer";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import CompletedCheckout from "../../features/User/Checkout/CompletedCheckout";
+import { setLogout } from "../../store/slice/loginSlice";
 
 const UserPage = () => {
   const receivedOrder = useSelector((state) => state.basketSlice.cart.length);
+  const dispatch = useDispatch();
   const { query } = useRouter();
   let component = {};
   const renderPage = () => {
@@ -30,6 +32,8 @@ const UserPage = () => {
         ) : (
           <CompletedCheckout />
         ));
+      case "logout":
+        dispatch(setLogout());
       default:
         return (component = <ErrorPage />);
     }

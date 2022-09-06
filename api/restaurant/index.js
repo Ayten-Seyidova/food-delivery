@@ -1,11 +1,11 @@
 import { Axios, AxiosMockCreate } from "../../mocks";
-import restaurantData from '../../mocks/restaurants/restaurants.json'
+import restaurantData from "../../mocks/restaurants/restaurants.json";
 
 AxiosMockCreate.onGet("/restaurant").reply(() => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve([200, { restaurant: restaurantData }]);
-    }, 2000);
+    }, 10);
   });
 });
 

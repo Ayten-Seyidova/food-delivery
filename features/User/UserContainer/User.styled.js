@@ -7,17 +7,25 @@ export const UserContainer = styled.div`
   gap: 1%;
   width: 100%;
   height: 515px;
+  @media screen and (max-width: 768px){
+    display: flex;
+    flex-direction: column;
+    height: 696px;
+  }
 `;
 
 export const Options = styled.div`
   background-color: #f3f4f6;
   width: 99%;
   border-radius: 5px;
-  padding: 60px;
-  /* gap: 250px; */
+  padding: 10%;
   justify-content: center;
   align-items: center;
   text-align: center;
+  @media screen and (max-width: 768px){
+    display: none;
+    
+  }
 `;
 
 export const UserPage = styled.div`
@@ -53,4 +61,5 @@ export const Option = styled.div`
     cursor: pointer;
     color: red;
   }
+  
 `;

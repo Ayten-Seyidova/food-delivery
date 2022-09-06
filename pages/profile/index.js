@@ -1,5 +1,5 @@
 import Head from "next/head";
-import ProfileContainer from "../../features/Profile/ProfileContainer/ProfileContainer";
+import ProfileContainer from "../../features/User/Profile/ProfileContainer";
 import Layout from "../../shared/components/Layout";
 
 const Profile = () => {
