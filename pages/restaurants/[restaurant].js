@@ -1,10 +1,10 @@
 import Head from "next/head";
-import { productsAPI } from "../../api/products";
-import { restaurantAPI, restaurantGetAPI } from "../../api/restaurant";
+import { productsGetAPI } from "../../api/products";
+import { restaurantGetAPI } from "../../api/restaurant";
 import RestaurantDetail from "../../features/RestaurantDetail/RestaurantDetail";
 import Layout from "../../shared/components/Layout";
 
-const DetailPage = ({ products }) => {
+const DetailPage = (props) => {
   return (
     <Layout>
       <Head>
@@ -12,19 +12,22 @@ const DetailPage = ({ products }) => {
         <meta name="description" content="Foody delivery app" />
         <link rel="icon" href="/favicon.png" />
       </Head>
-      <RestaurantDetail />
+      <RestaurantDetail data={props} />
     </Layout>
   );
 };
 
 export async function getServerSideProps(context) {
   const slug = context.query.name;
-  
-  // const products = await restaurantAPI.then((res) => {
-  //   return res;
-  // });
-  // console.log(products)
-  return { props: { } };
+  let restaurant = await restaurantGetAPI(slug);
+  let products = await productsGetAPI(slug);
+
+  return {
+    props: {
+      restaurant: restaurant.data.restaurant,
+      products: products.data.products,
+    },
+  };
 }
 
 export default DetailPage;

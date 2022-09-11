@@ -2,65 +2,265 @@
   {
     "id": 1,
     "name": "Papa Pizza",
-    "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWcIbqAn-zetoLPo3TMlAc9t3J0u-rKCG96w&usqp=CAU",
+    "img": "https://www.pngmart.com/files/1/Pepperoni-Pizza.png",
     "description": "Prepared with a  patty, a slice of cheese and special sauce",
-    "restaurant": "Papa John's",
+    "restaurant": "papa-johns",
     "price": 7.9
   },
   {
     "id": 2,
-    "name": "Papa Poper Roll",
-    "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWcIbqAn-zetoLPo3TMlAc9t3J0u-rKCG96w&usqp=CAU",
+    "name": "Pepperoni Rolls",
+    "img": "https://www.papajohns.az/uploads/images/pepperoni_rolls.jpg",
     "description": "Prepared with a  patty, a slice of cheese and special sauce",
-    "restaurant": "Papa John's",
+    "restaurant": "papa-johns",
     "price": 4.2
   },
   {
     "id": 3,
     "name": "Coca Cola",
-    "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWcIbqAn-zetoLPo3TMlAc9t3J0u-rKCG96w&usqp=CAU",
+    "img": "https://www.pngmart.com/files/1/Coca-Cola-PNG-Photos.png",
     "description": "Prepared with a  patty, a slice of cheese and special sauce",
-    "restaurant": "Papa John's",
+    "restaurant": "papa-johns",
     "price": 1.9
   },
   {
     "id": 4,
-    "name": "Papa Coffee",
-    "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWcIbqAn-zetoLPo3TMlAc9t3J0u-rKCG96w&usqp=CAU",
+    "name": "Coffee",
+    "img": "https://www.pngmart.com/files/17/Coffee-Chocolate-Cup-PNG-Photos.png",
     "description": "Prepared with a  patty, a slice of cheese and special sauce",
-    "restaurant": "Papa John's",
+    "restaurant": "papa-johns",
     "price": 0.7
   },
   {
     "id": 5,
-    "name": "Papa Fanta",
-    "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWcIbqAn-zetoLPo3TMlAc9t3J0u-rKCG96w&usqp=CAU",
+    "name": "Fanta",
+    "img": "https://www.pngmart.com/files/22/Fanta-PNG-Isolated-Photos.png",
     "description": "Prepared with a  patty, a slice of cheese and special sauce",
-    "restaurant": "Papa John's",
+    "restaurant": "papa-johns",
     "price": 7.9
   },
   {
     "id": 6,
-    "name": "Papa Pepsi",
-    "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWcIbqAn-zetoLPo3TMlAc9t3J0u-rKCG96w&usqp=CAU",
+    "name": "Pepsi",
+    "img": "https://www.pngmart.com/files/3/Pepsi-PNG-File.png",
     "description": "Prepared with a  patty, a slice of cheese and special sauce",
-    "restaurant": "Papa John's",
+    "restaurant": "papa-johns",
     "price": 7.9
   },
   {
     "id": 7,
-    "name": "Papa Diaz",
-    "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWcIbqAn-zetoLPo3TMlAc9t3J0u-rKCG96w&usqp=CAU",
+    "name": "Papadias",
+    "img": "https://www.papajohns.az/uploads/images/Papadias/İtalyan-papadias.png",
     "description": "Prepared with a  patty, a slice of cheese and special sauce",
-    "restaurant": "Papa John's",
+    "restaurant": "papa-johns",
     "price": 7.9
   },
   {
     "id": 8,
-    "name": "Papa Roll",
-    "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWcIbqAn-zetoLPo3TMlAc9t3J0u-rKCG96w&usqp=CAU",
+    "name": "Chicken Burger",
+    "img": "https://www.pngmart.com/files/15/Cheese-Burger-King-PNG-Photos.png",
     "description": "Prepared with a  patty, a slice of cheese and special sauce",
-    "restaurant": "Burger King",
+    "restaurant": "burger-king",
+    "price": 7.9
+  },
+  {
+    "id": 9,
+    "name": "Big Burger",
+    "img": "https://www.pngmart.com/files/15/Big-Burger-King-PNG-Photos.png",
+    "description": "Prepared with a  patty, a slice of cheese and special sauce",
+    "restaurant": "burger-king",
+    "price": 7.9
+  },
+  {
+    "id": 10,
+    "name": "Combo Burger",
+    "img": "https://www.pngmart.com/files/15/Combo-Burger-King-PNG-Clipart.png",
+    "description": "Prepared with a  patty, a slice of cheese and special sauce",
+    "restaurant": "burger-king",
+    "price": 7.9
+  },
+  {
+    "id": 11,
+    "name": "Cheese Burger",
+    "img": "https://www.pngmart.com/files/15/Cheese-Burger-King-PNG-Image.png",
+    "description": "Prepared with a  patty, a slice of cheese and special sauce",
+    "restaurant": "burger-king",
+    "price": 7.9
+  },
+  {
+    "id": 12,
+    "name": "Chicken Basket",
+    "img": "https://www.pngmart.com/files/22/KFC-PNG-HD.png",
+    "description": "Prepared with a  patty, a slice of cheese and special sauce",
+    "restaurant": "kfc",
+    "price": 7.9
+  },
+  {
+    "id": 13,
+    "name": "Combo Menu",
+    "img": "https://www.pngmart.com/files/22/KFC-PNG-Isolated-Photo.png",
+    "description": "Prepared with a  patty, a slice of cheese and special sauce",
+    "restaurant": "kfc",
+    "price": 7.9
+  },
+  {
+    "id": 14,
+    "name": "Big Combo Menu",
+    "img": "https://www.pngmart.com/files/22/KFC-PNG-Picture.png",
+    "description": "Prepared with a  patty, a slice of cheese and special sauce",
+    "restaurant": "kfc",
+    "price": 7.9
+  },
+  {
+    "id": 15,
+    "name": "Nuggets",
+    "img": "https://www.pngmart.com/files/16/Crunchy-KFC-Chicken-Transparent-PNG.png",
+    "description": "Prepared with a  patty, a slice of cheese and special sauce",
+    "restaurant": "kfc",
+    "price": 7.9
+  },
+  {
+    "id": 16,
+    "name": "Family Size Menu",
+    "img": "https://www.pngmart.com/files/4/Mcdonalds-PNG-Image.png",
+    "description": "Prepared with a  patty, a slice of cheese and special sauce",
+    "restaurant": "mcdonalds",
+    "price": 7.9
+  },
+  {
+    "id": 17,
+    "name": "Small Size Menu",
+    "img": "https://www.pngmart.com/files/22/McDonalds-PNG-Image.png",
+    "description": "Prepared with a  patty, a slice of cheese and special sauce",
+    "restaurant": "McDonald's",
+    "price": 7.9
+  },
+  {
+    "id": 18,
+    "name": "Hamburger",
+    "img": "https://www.pngmart.com/files/22/McDonalds-PNG-Clipart.png",
+    "description": "Prepared with a  patty, a slice of cheese and special sauce",
+    "restaurant": "mcdonalds",
+    "price": 7.9
+  },
+  {
+    "id": 19,
+    "name": "Double Hamburger",
+    "img": "https://www.pngmart.com/files/4/Mcdonalds-PNG-File.png",
+    "description": "Prepared with a  patty, a slice of cheese and special sauce",
+    "restaurant": "mcdonalds",
+    "price": 7.9
+  },
+  {
+    "id": 20,
+    "name": "Fries Menu",
+    "img": "https://www.pngmart.com/files/4/Mcdonalds-PNG-Free-Download.png",
+    "description": "Prepared with a  patty, a slice of cheese and special sauce",
+    "restaurant": "mcdonalds",
+    "price": 7.9
+  },
+  {
+    "id": 21,
+    "name": "Chocolate Milkshake",
+    "img": "https://www.pngmart.com/files/22/Starbucks-PNG-Picture.png",
+    "description": "Prepared with a  patty, a slice of cheese and special sauce",
+    "restaurant": "starbucks",
+    "price": 7.9
+  },
+  {
+    "id": 22,
+    "name": "Iced Latte",
+    "img": "https://www.pngmart.com/files/22/Starbucks-PNG-Isolated-File.png",
+    "description": "Prepared with a  patty, a slice of cheese and special sauce",
+    "restaurant": "starbucks",
+    "price": 7.9
+  },
+  {
+    "id": 23,
+    "name": "Mocha",
+    "img": "https://www.pngmart.com/files/22/Starbucks-Coffee-PNG-Isolated-HD.png",
+    "description": "Prepared with a  patty, a slice of cheese and special sauce",
+    "restaurant": "starbucks",
+    "price": 7.9
+  },
+  {
+    "id": 24,
+    "name": "Ice Cream",
+    "img": "https://www.pngmart.com/files/22/Starbucks-Coffee-PNG-Transparent.png",
+    "description": "Prepared with a  patty, a slice of cheese and special sauce",
+    "restaurant": "starbucks",
+    "price": 7.9
+  },
+  {
+    "id": 25,
+    "name": "Iced Chocolate (extra cream)",
+    "img": "https://www.pngmart.com/files/22/Starbucks-Coffee-PNG-Picture.png",
+    "description": "Prepared with a  patty, a slice of cheese and special sauce",
+    "restaurant": "starbucks",
+    "price": 7.9
+  },
+  {
+    "id": 26,
+    "name": "Matcha Latte",
+    "img": "https://www.pngmart.com/files/22/Starbucks-PNG-Free-Download.png",
+    "description": "Prepared with a  patty, a slice of cheese and special sauce",
+    "restaurant": "starbucks",
+    "price": 7.9
+  },
+  {
+    "id": 27,
+    "name": "Cheese Pizza",
+    "img": "https://www.pngmart.com/files/1/Cheese-Pizza-PNG-Image.png",
+    "description": "Prepared with a  patty, a slice of cheese and special sauce",
+    "restaurant": "dominos",
+    "price": 7.9
+  },
+  {
+    "id": 28,
+    "name": "Pepperoni Pizza",
+    "img": "https://www.pngmart.com/files/1/Pepperoni-Pizza-PNG-Transparent-Image.png",
+    "description": "Prepared with a  patty, a slice of cheese and special sauce",
+    "restaurant": "dominos",
+    "price": 7.9
+  },
+  {
+    "id": 29,
+    "name": "Pepperoni Pizza",
+    "img": "https://www.pngmart.com/files/1/Pepperoni-Pizza-PNG-Transparent-Image.png",
+    "description": "Prepared with a  patty, a slice of cheese and special sauce",
+    "restaurant": "dominos",
+    "price": 7.9
+  },
+  {
+    "id": 30,
+    "name": "Slice Pizza",
+    "img": "https://www.pngmart.com/files/1/Pizza-Slice-PNG-Image.png",
+    "description": "Prepared with a  patty, a slice of cheese and special sauce",
+    "restaurant": "dominos",
+    "price": 7.9
+  },
+  {
+    "id": 31,
+    "name": "Pink Donut",
+    "img": "https://www.pngmart.com/files/5/Donuts-Transparent-Background.png",
+    "description": "Prepared with a  patty, a slice of cheese and special sauce",
+    "restaurant": "dunkin",
+    "price": 7.9
+  },
+  {
+    "id": 32,
+    "name": "Chocolate Donut",
+    "img": "https://www.pngmart.com/files/5/Donuts-Transparent-PNG.png",
+    "description": "Prepared with a  patty, a slice of cheese and special sauce",
+    "restaurant": "dunkin",
+    "price": 7.9
+  },
+  {
+    "id": 33,
+    "name": "Donut Box",
+    "img": "https://www.pngmart.com/files/5/Donuts-PNG-Free-Download.png",
+    "description": "Prepared with a  patty, a slice of cheese and special sauce",
+    "restaurant": "dunkin",
     "price": 7.9
   }
 ]

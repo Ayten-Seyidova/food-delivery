@@ -3,7 +3,7 @@ import { ProfileContainerDiv } from "./ProfileContainer.styled";
 
 import { Formik } from "formik";
 import { useDispatch, useSelector } from "react-redux";
-import { getUserData, setLogin } from "../../../store/slice/loginSlice";
+import { getUserData } from "../../../store/slice/loginSlice";
 import { loginCreateAPI } from "../../../api/login";
 
 const Basic = (props) => (

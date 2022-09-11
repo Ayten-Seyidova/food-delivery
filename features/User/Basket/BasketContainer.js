@@ -61,7 +61,7 @@ const BasketContainer = () => {
               <BasketProductContent>
                 <h1 style={{ fontSize: 16, color: "#4f4f4f" }}>{item.name}</h1>
                 <p style={{ fontSize: 14, color: "#4f4f4f" }}>
-                  ${(item.price * item.quantity) / 1.0}
+                  ${Math.round(item.price * item.quantity * 100) / 100}
                 </p>
               </BasketProductContent>
               <Counter>
@@ -95,13 +95,16 @@ const BasketContainer = () => {
               height: 43,
               borderRadius: 100,
               backgroundColor: "#fff",
-              // color: "red",
+              color: "red",
               justifyContent: "center",
               alignItems: "center",
               display: "flex",
             }}
           >
-            ${cart.reduce((a, b) => a + b.price * b.quantity, 0)}
+            $
+            {Math.round(
+              cart.reduce((a, b) => a + b.price * b.quantity, 0) * 100
+            ) / 100}
           </div>
         </CheckoutButton>
       </div>

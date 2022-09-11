@@ -3,10 +3,9 @@ import styled from "styled-components";
 export const UserContainer = styled.div`
   margin: 1% 0px;
   display: grid;
-  grid-template-columns: 25% 75%;
-  gap: 1%;
+  grid-template-columns: 25% 74%;
+  gap: 0.5%;
   width: 100%;
-  height: 515px;
   @media screen and (max-width: 768px){
     display: flex;
     flex-direction: column;

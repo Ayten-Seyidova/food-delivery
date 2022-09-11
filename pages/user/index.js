@@ -30,7 +30,7 @@ const UserPage = () => {
         return (component = receivedOrder ? (
           <CheckoutContainer />
         ) : (
-          <CompletedCheckout />
+          <CheckoutContainer />
         ));
       case "logout":
         dispatch(setLogout());
