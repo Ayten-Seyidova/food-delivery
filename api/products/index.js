@@ -9,6 +9,16 @@ AxiosMockCreate.onGet("/products").reply(() => {
   });
 });
 
+AxiosMockCreate.onGet(/\/products\/\w+/).reply((config) => {
+  return new Promise((resolve, reject) => {
+    let name = config.url.split("/")[2];
+    let filteredProducts = productsData.filter((product) => product.restaurant == name);
+    setTimeout(() => {
+      resolve([200, { products: filteredProducts }]);
+    }, 2000);
+  });
+});
+
 AxiosMockCreate.onPost("/products").reply((config) => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
@@ -26,5 +36,6 @@ AxiosMockCreate.onDelete(/\/products\/\d+/).reply(() => {
 });
 
 export const productsAPI = Axios.get("/products");
+export const productsGetAPI = (slug) => Axios.get(`/products/${slug}`);
 export const productsDeleteAPI = (id) => Axios.delete(`/products/${id}`);
 export const productsCreateAPI = (item) => Axios.post(`/products`, item);

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
   BasketHeader,
   BasketProduct,
@@ -13,18 +13,27 @@ import {
   CoverDetail,
   CoverDetailLeft,
   CoverDetailRight,
+  CoverImage,
   Cuisine,
   Down,
+  EmptyBasketText,
   From,
   Line,
   Name,
+  PlusButton,
   PlusMinusButton,
+  Price,
+  PriceContainer,
   Product,
   ProductContent,
+  ProductDescription,
   ProductImg,
+  ProductName,
   Products,
+  ProductText,
   RestDetail,
   Text,
+  TotalPrice,
 } from "./RestaurantDetail.styled";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
@@ -38,46 +47,12 @@ import {
 } from "../../store/slice/basketSlice";
 import { GrBasket } from "react-icons/gr";
 import { basketCreateAPI, basketDeleteAPI } from "../../api/basket";
-import { restaurantAPI } from "../../api/restaurant";
-import { productsAPI } from "../../api/products";
 
-function RestaurantDetail() {
+function RestaurantDetail({ data }) {
   let { push, back } = useRouter();
-  const router = useRouter();
-  const query = Object.values(router)[2];
-  const [myRestaurant, setMyRestaurant] = useState();
-  const [products, setProducts] = useState();
 
   const cart = useSelector((state) => state.basketSlice.cart);
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    productsAPI.then((res) => {
-      setProducts(
-        res.data.products.filter(
-          (item) => item.restaurant == myRestaurant?.name
-        )
-      );
-    });
-  }, []);
-
-  const getData = () => {
-    restaurantAPI.then((res) => {
-      setMyRestaurant(
-        res.data.restaurant.find((item) => item.slug == query.name)
-      );
-    });
-
-    productsAPI.then((res) => {
-      setProducts(
-        res.data.products.filter((item) => item.restaurant == myRestaurant.name)
-      );
-    });
-  };
-
-  // const products = product.filter(
-  //   (item) => item.restaurant == myRestaurant.name
-  // );
 
   const addProduct = (item) => {
     basketCreateAPI(item)
@@ -107,28 +82,17 @@ function RestaurantDetail() {
     <div>
       <RestDetail>
         <Cover>
-          <img
-            src={myRestaurant?.img}
-            alt={myRestaurant?.name}
-            style={{
-              width: "100%",
-              height: "100%",
-              objectFit: "contain",
-              maxHeight: 400,
-              minHeight: "none",
-              boreder: "1px solid black",
-            }}
-          />
+          <CoverImage src={data.restaurant.img} alt={data.restaurant.name} />
         </Cover>
         <CoverDetail>
           <CoverDetailLeft>
-            <Name>{myRestaurant?.name}</Name>
-            <Text>{myRestaurant?.address}</Text>
+            <Name>{data.restaurant.name}</Name>
+            <Text>{data.restaurant.address}</Text>
           </CoverDetailLeft>
           <CoverDetailRight>
             <Cuisine>
               <Text style={{ fontSize: 18 }}>Cuisine</Text>
-              <Text>{myRestaurant?.categories}</Text>
+              <Text>{data.restaurant.categories}</Text>
             </Cuisine>
             <Buttons>
               <ButtonDiv
@@ -137,63 +101,47 @@ function RestaurantDetail() {
                   color: "#d63626",
                 }}
               >
-                {`${myRestaurant?.deliveryPrice} $ Delivery`}
+                {`${data.restaurant.deliveryPrice} $ Delivery`}
               </ButtonDiv>
-              <ButtonDiv onClick={() => back()}>Go Back</ButtonDiv>
+              <ButtonDiv id="goback" onClick={() => back()}>
+                Go Back
+              </ButtonDiv>
             </Buttons>
           </CoverDetailRight>
         </CoverDetail>
         <Down>
           <Products>
-            <Name style={{ fontSize: 25, padding: 30 }}>Products</Name>
-            {products?.map((item) => (
+            <Name style={{ padding: 30 }}>Products</Name>
+            {data.products.map((item) => (
               <Product key={item.id}>
                 <ProductImg src={item.img} alt={item.name} />
                 <ProductContent>
-                  <h1 style={{ fontSize: 18, color: "#4f4f4f" }}>
-                    {item.name}
-                  </h1>
-                  <p style={{ fontSize: 14, color: "#828282" }}>
-                    {item.description}
-                  </p>
+                  <ProductText>
+                    <ProductName>{item.name}</ProductName>
+                    <ProductDescription>{item.description}</ProductDescription>
+                  </ProductText>
                 </ProductContent>
-                <div
-                  style={{
-                    justifyContent: "center",
-                    alignItems: "center",
-                    textAlign: "center",
-                    display: "flex",
-                    flexDirection: "row",
-                    width: 120,
-                    background: "green",
-                  }}
-                >
-                  <div
-                    style={{
-                      justifyContent: "center",
-                      alignItems: "center",
-                      display: "flex",
-                      flexDirection: "row",
+                <PriceContainer>
+                  <From>From&nbsp;</From>
+                  <Price>${item.price}0</Price>
+                </PriceContainer>
+                <PlusButton>
+                  <Button
+                    variant="contained"
+                    color="success"
+                    onClick={() => addProduct(item)}
+                    sx={{
+                      background: "#6FCF97",
+                      minWidth: 40,
+                      minHeight: 40,
+                      maxWidth: 40,
+                      borderRadius: "50%",
+                      marginRight: 0,
                     }}
                   >
-                    <p style={{ background: "yellow" }}>From</p> &nbsp;
-                    <p style={{ fontWeight: "bold", background: "blue" }}>
-                      ${item.price}
-                    </p>
-                  </div>
-                </div>
-                <Button
-                  variant="contained"
-                  onClick={() => addProduct(item)}
-                  sx={{
-                    background: "#6fcf97",
-                    width: "10px",
-                    height: "60px",
-                    borderRadius: "50%",
-                  }}
-                >
-                  +
-                </Button>
+                    +
+                  </Button>
+                </PlusButton>
               </Product>
             ))}
           </Products>
@@ -204,82 +152,70 @@ function RestaurantDetail() {
               >
                 <MdOutlineShoppingBasket size={30} /> {cart.length} items
               </BasketHeader>
-              {cart.length ? (
-                cart.map((item) => (
-                  <BasketProduct key={item.id}>
-                    <img
-                      src={item.img}
-                      alt={item.name}
-                      style={{ width: 45, height: 45, objectFit: "contain" }}
-                    />
-                    <BasketProductContent>
-                      <h1 style={{ fontSize: 16, color: "#4f4f4f" }}>
-                        {item.name}
-                      </h1>
-                      <p style={{ fontSize: 14, color: "#4f4f4f" }}>
-                        ${(item.price * item.quantity) / 1.0}
-                      </p>
-                    </BasketProductContent>
-                    <Counter>
-                      <PlusMinusButton onClick={() => increment(item.id)}>
-                        +
-                      </PlusMinusButton>
-                      <p style={{ margin: 0, padding: 0 }}>{item.quantity}</p>
-                      <PlusMinusButton onClick={() => decrement(item.id)}>
-                        -
-                      </PlusMinusButton>
-                    </Counter>
-                    <MdOutlineDeleteSweep
-                      size={27}
-                      color="#BDBDBD"
-                      onClick={() => deleteProduct(item.id)}
-                      style={{
-                        top: 0,
-                        bottom: 100,
-                        width: 50,
-                        position: "relative",
-                      }}
-                    />
-                  </BasketProduct>
-                ))
-              ) : (
-                <div
-                  style={{
-                    justifyContent: "space-around",
-                    alignItems: "center",
-                    display: "flex",
-                    height: "100%",
-                    flexDirection: "column",
-                    textAlign: "center",
-                    color: "#bdbdbd",
-                  }}
-                >
-                  <GrBasket size={150} style={{ color: "red" }} />
-                  <p style={{ fontWeight: 500, fontSize: 40 }}>
-                    Opps! <br></br>Basket empty
-                  </p>
-                </div>
-              )}
+              <div style={{ overflowY: "auto" }}>
+                {cart.length ? (
+                  cart.map((item) => (
+                    <BasketProduct key={item.id}>
+                      <img
+                        src={item.img}
+                        alt={item.name}
+                        style={{ width: 45, height: 45, objectFit: "contain" }}
+                      />
+                      <BasketProductContent>
+                        <h1 style={{ fontSize: 16, color: "#4f4f4f" }}>
+                          {item.name}
+                        </h1>
+                        <p style={{ fontSize: 14, color: "#4f4f4f" }}>
+                          ${Math.round(item.price * item.quantity * 100) / 100}
+                        </p>
+                      </BasketProductContent>
+                      <Counter>
+                        <PlusMinusButton onClick={() => increment(item.id)}>
+                          +
+                        </PlusMinusButton>
+                        <p style={{ margin: 0, padding: 0 }}>{item.quantity}</p>
+                        <PlusMinusButton onClick={() => decrement(item.id)}>
+                          -
+                        </PlusMinusButton>
+                      </Counter>
+                      <MdOutlineDeleteSweep
+                        size={27}
+                        color="#BDBDBD"
+                        onClick={() => deleteProduct(item.id)}
+                        style={{
+                          top: 0,
+                          bottom: 100,
+                          width: 50,
+                          position: "relative",
+                        }}
+                      />
+                    </BasketProduct>
+                  ))
+                ) : (
+                  <EmptyBasketText>
+                    <GrBasket size={150} style={{ color: "red" }} />
+                    <p style={{ fontWeight: 500, fontSize: 40 }}>
+                      Opps! <br></br>Basket empty
+                    </p>
+                  </EmptyBasketText>
+                )}
+              </div>
             </Checkout>
             <CheckoutButton
               onClick={() => push("/user?page=basket")}
               style={{ backgroundColor: cart.length ? "#d63626" : "#bdbdbd" }}
             >
               Checkout
-              <div
+              <TotalPrice
                 style={{
-                  width: 135,
-                  height: 43,
-                  borderRadius: 100,
-                  backgroundColor: "#fff",
                   color: cart.length ? "red" : "#bdbdbd",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  display: "flex",
                 }}
               >
-                ${cart.reduce((a, b) => a + b.price * b.quantity, 0)}
-              </div>
+                $
+                {Math.round(
+                  cart.reduce((a, b) => a + b.price * b.quantity, 0) * 100
+                ) / 100}
+              </TotalPrice>
             </CheckoutButton>
           </CheckoutContainer>
         </Down>
@@ -288,9 +224,5 @@ function RestaurantDetail() {
     </div>
   );
 }
-
-export const getServerSideProps = (context) => {
-  return { props: { context } };
-};
 
 export default RestaurantDetail;
